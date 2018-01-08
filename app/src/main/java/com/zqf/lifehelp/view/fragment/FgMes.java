@@ -1,5 +1,6 @@
 package com.zqf.lifehelp.view.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.utils.Util;
+import com.zqf.lifehelp.view.activity.SettingActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,6 +35,13 @@ public class FgMes extends Fragment {
     TextView collectTv;
     @Bind(R.id.setting_tv)
     TextView settingTv;
+    private Activity mActivity;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mActivity = getActivity();
+    }
 
     @Nullable
     @Override
@@ -51,6 +61,7 @@ public class FgMes extends Fragment {
             case R.id.collect_tv:
                 break;
             case R.id.setting_tv:
+                Util.NextActivity(mActivity, SettingActivity.class);
                 break;
         }
     }

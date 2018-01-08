@@ -34,4 +34,5 @@
     <string name="lps_zwsj">暂无数据</string>
     <string name="zwwl">加载失败，请点击重新加载</string>
     <string name="again_reload">重新加载</string>
+    <string name="out_login_str">退出登录</string>
 </resources>
