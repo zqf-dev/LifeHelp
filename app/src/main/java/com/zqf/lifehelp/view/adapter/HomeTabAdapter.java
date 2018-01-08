@@ -44,8 +44,8 @@ public class HomeTabAdapter extends HeaderAndFooterAdapter<TabModel.ResultBean.L
         tabViewHolder.tabRecycleItemPubTime.setText(item.getPubTime());
         tabViewHolder.tabRecycleItemTv.setText(item.getTitle());
         Glide.with(mContext).load(item.getThumbnails())
-                .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.placeholder_icon)
+                .error(R.mipmap.placeholder_icon)
                 .into(tabViewHolder.tabRecycleItemIv);
     }
 

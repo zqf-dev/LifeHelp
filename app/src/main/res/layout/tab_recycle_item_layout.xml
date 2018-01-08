@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:background="@color/white"
-              android:padding="@dimen/size_10dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/size_10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +16,8 @@
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:contentDescription="@null"
-            android:src="@mipmap/ic_launcher"/>
+            android:scaleType="center"
+            android:src="@mipmap/placeholder_icon150" />
 
         <TextView
             android:id="@+id/tab_recycle_item_tv"
@@ -28,7 +29,7 @@
             android:maxLines="2"
             android:paddingRight="5dp"
             android:text="@string/explametitle_str"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tab_recycle_item_pubTime"
@@ -37,6 +38,6 @@
             android:layout_below="@id/tab_recycle_item_tv"
             android:layout_marginTop="@dimen/size_5dp"
             android:text="@string/explame_str"
-            android:textSize="@dimen/size_11sp"/>
+            android:textSize="@dimen/size_11sp" />
     </RelativeLayout>
 </LinearLayout>
