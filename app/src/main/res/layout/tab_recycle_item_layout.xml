@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:padding="@dimen/size_10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tab_recycle_item_iv"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/tab_recycle_item_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tab_recycle_item_iv"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/size_3dp"
+            android:maxLines="2"
+            android:paddingRight="5dp"
+            android:text="@string/explametitle_str"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tab_recycle_item_pubTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tab_recycle_item_tv"
+            android:layout_marginTop="@dimen/size_5dp"
+            android:text="@string/explame_str"
+            android:textSize="@dimen/size_11sp"/>
+    </RelativeLayout>
+</LinearLayout>

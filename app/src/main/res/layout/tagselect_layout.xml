@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tag_tit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_30dp"
+        android:text="@string/tag_tit_str"
+        android:textSize="@dimen/size_30sp"/>
+
+    <TextView
+        style="@style/warp_size15"
+        android:layout_below="@id/tag_tit_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/small_tit_tv"
+        android:textColor="@color/gray_0"/>
+
+
+    <com.zqf.lifehelp.view.customview.FlowTagLayout
+        android:id="@+id/tag_flowlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/size_15dp"
+        android:layout_marginRight="@dimen/size_15dp"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/tag_next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@id/tag_flowlayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/tag_btn_bg"
+        android:paddingLeft="@dimen/size_5dp"
+        android:paddingRight="@dimen/size_5dp"
+        android:text="@string/tag_next_btn_str"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/regist_tv"
+            style="@style/warp_size16"
+            android:padding="10dp"
+            android:text="@string/regist_str"/>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/gray"/>
+
+        <TextView
+            android:id="@+id/login_tv"
+            style="@style/warp_size16"
+            android:padding="10dp"
+            android:text="@string/login_str"/>
+    </LinearLayout>
+
+</RelativeLayout>

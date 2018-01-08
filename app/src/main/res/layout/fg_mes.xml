@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/width_match_dian15line"/>
+
+    <RelativeLayout
+        style="@style/width_match_dian_relative">
+
+        <ImageView
+            android:id="@+id/avatar_image"
+            android:layout_width="@dimen/size_60dp"
+            android:layout_height="@dimen/size_60dp"
+            android:layout_margin="@dimen/size_15dp"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@mipmap/icon_avatar_default"/>
+
+        <TextView
+            style="@style/warp_size16"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/avatar_image"
+            android:text="@string/nickname_str"/>
+    </RelativeLayout>
+
+    <TextView
+        style="@style/width_match_dian15line"/>
+
+    <RelativeLayout
+        style="@style/width_match_dian_relative">
+
+        <TextView
+            android:id="@+id/photo_album_tv"
+            style="@style/width_match_50height_tv"
+            android:drawableLeft="@mipmap/icon_photo_album"
+            android:text="@string/photo_str"/>
+
+        <TextView
+            android:id="@+id/mes_line1"
+            style="@style/width_match_dian5ine"
+            android:layout_below="@id/photo_album_tv"
+            android:layout_marginLeft="@dimen/size_10dp"
+            android:layout_marginRight="@dimen/size_10dp"/>
+
+        <TextView
+            android:id="@+id/collect_tv"
+            style="@style/width_match_50height_tv"
+            android:layout_below="@id/mes_line1"
+            android:drawableLeft="@mipmap/icon_collect"
+            android:text="@string/collect_str"/>
+
+        <TextView
+            style="@style/width_match_dian10ine"
+            android:layout_below="@id/collect_tv"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/width_match_dian_relative">
+
+        <TextView
+            android:id="@+id/setting_tv"
+            style="@style/width_match_50height_tv"
+            android:drawableLeft="@mipmap/icon_setting"
+            android:text="@string/setting_str"/>
+
+        <TextView
+            style="@style/width_match_dian10ine"
+            android:layout_below="@id/setting_tv"/>
+    </RelativeLayout>
+
+</LinearLayout>

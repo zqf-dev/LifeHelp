@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/width_match_dian10ine"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/size_5dp"
+        android:paddingTop="@dimen/size_5dp">
+
+        <TextView
+            android:id="@+id/leib_name_tv"
+            style="@style/warp_size15"
+            android:text="@string/leib_name_str"/>
+
+        <TextView
+            android:id="@+id/more_leib_tv"
+            style="@style/warp_size15"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/size_10dp"
+            android:text="@string/more_str"/>
+
+    </FrameLayout>
+
+    <TextView
+        style="@style/width_match_line"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sort_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

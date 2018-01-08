@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp">
+
+        <RadioButton
+            android:id="@+id/controller_hall"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/homes_draw"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="@string/homs_str"
+            android:background="@drawable/radiobtn_bg"
+            android:textColor="@drawable/tab_text"
+            android:textSize="12sp"/>
+
+        <RadioButton
+            android:id="@+id/controller_bgsyy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/wdj_draw"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:background="@drawable/radiobtn_bg"
+            android:text="@string/wendajia"
+            android:textColor="@drawable/tab_text"
+            android:textSize="12sp"/>
+
+
+        <RadioButton
+            android:id="@+id/controller_me"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/mes_draw"
+            android:gravity="center"
+            android:background="@drawable/radiobtn_bg"
+            android:paddingTop="5dp"
+            android:text="@string/geren_str"
+            android:textColor="@drawable/tab_text"
+            android:textSize="12sp"/>
+    </RadioGroup>
+
+</LinearLayout>

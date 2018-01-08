@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray0">
+
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray0"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/netloading"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/tv_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:text="@string/netloading_str"
+            android:textColor="@color/loading_color"
+            android:textSize="@dimen/sp_16"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/zwsj_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/zwxx"
+            android:gravity="center"
+            android:text="@string/lps_zwsj"
+            android:visibility="visible"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/wlyc"
+            android:gravity="center"
+            android:text="@string/zwwl"/>
+
+        <Button
+            android:id="@+id/tv_error_load"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/tv_error"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/error_button_bg"
+            android:gravity="center"
+            android:text="@string/again_reload"
+            android:textColor="@color/netloadrefresh_tvcolor"/>
+    </RelativeLayout>
+</RelativeLayout>

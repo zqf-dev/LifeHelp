@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/size_300dp"
+    android:background="@mipmap/weather_bg_cloudy_day"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/back_image"
+        style="@style/wrap_height_wrap_image"
+        android:contentDescription="@null"
+        android:padding="@dimen/size_10dp"
+        android:src="@mipmap/icon_back"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/size_10dp"
+        android:paddingRight="@dimen/size_10dp">
+
+        <TextView
+            android:id="@+id/temp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_20dp"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_50sp"/>
+
+        <TextView
+            android:id="@+id/temp_ssd_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/temp_tv"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/temp_tv"
+            android:text="℃"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_17sp"/>
+
+
+        <TextView
+            style="@style/warp_color_white"
+            android:layout_alignBottom="@id/temp_tv"
+            android:layout_marginLeft="@dimen/size_20dp"
+            android:layout_toRightOf="@id/temp_tv"
+            android:text="中雨"
+            android:textSize="@dimen/size_17sp"/>
+
+        <TextView
+            android:id="@+id/kongqi_zl_tv1"
+            style="@style/warp_color_white"
+            android:layout_alignParentRight="true"
+            android:text="空气质量:22"/>
+
+    </RelativeLayout>
+</LinearLayout>
