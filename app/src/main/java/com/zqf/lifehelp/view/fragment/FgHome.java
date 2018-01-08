@@ -9,13 +9,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.ScrollIndicatorView;
 import com.shizhefei.view.indicator.slidebar.DrawableBar;
@@ -83,7 +83,7 @@ public class FgHome extends Fragment {
         int unSelectTextColor = ContextCompat.getColor(mActivity, R.color.white);//未选中的字体颜色
         // 设置滚动监听
         tabIndicator.setOnTransitionListener(new OnTransitionTextListener().setColor(SelectTextColor, unSelectTextColor));
-        hoemVp.setOffscreenPageLimit(0);
+        hoemVp.setOffscreenPageLimit(1);
         mIndicatorViewPager = new IndicatorViewPager(tabIndicator, hoemVp);
         tabIndicator.setSplitAuto(true);//自动布局以便tag标签增加或者减少
         tabIndicator.setPinnedTabView(true);
@@ -109,7 +109,7 @@ public class FgHome extends Fragment {
             mDataManager.getHomeTags(Constants.MOBKEY).enqueue(new Callback<HomeTag>() {
                 @Override
                 public void onResponse(Call<HomeTag> call, Response<HomeTag> response) {
-                    Log.e("LifeHelp", response.body().toString());
+                    Logger.i("LifeHelp", "Tag--" + response.body().toString());
                     if (response.isSuccessful()) {
                         HomeTag homeTag = response.body();
                         mTags_name = new String[homeTag.getResult().size()];
@@ -138,7 +138,7 @@ public class FgHome extends Fragment {
         } else {
             mTags_name = hometag.split(",");
             mTags_cid = homecid.split(",");
-            Log.e("LifeHelp", mTags_name.length + "");
+            Logger.i(mTags_name.length + "");
             init();//初始化
         }
     }

@@ -7,7 +7,9 @@ import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
+import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
+import com.zqf.lifehelp.utils.LogUtil;
 
 /**
  * Created by zqf on 2017/5/31.
@@ -29,6 +31,18 @@ public class App extends Application {
         Utils.init(this);
         mSPUtils = SPUtils.getInstance("life");
         initLogger();
+        QbSdk.PreInitCallback preInitCallback = new QbSdk.PreInitCallback() {
+            @Override
+            public void onCoreInitFinished() {
+
+            }
+
+            @Override
+            public void onViewInitFinished(boolean b) {
+                LogUtil.logD("x5初始化返回结果--" + b);
+            }
+        };
+        QbSdk.initX5Environment(getApplicationContext(), preInitCallback);
     }
 
     /**

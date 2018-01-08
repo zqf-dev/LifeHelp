@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yxcl.firedepartment.R;
-import com.yxcl.firedepartment.customview.NetLoadView;
+import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.view.customview.NetLoadView;
 
 /**
  * Created by zqf on 2017/3/21.
@@ -47,7 +47,6 @@ public abstract class BaseFragment extends Fragment {
         }
         return view;
     }
-
 
     private void initBaseView(ViewGroup view) {
         mNetLoadView = (NetLoadView) view.findViewById(R.id.base_netloadview);
@@ -128,7 +127,7 @@ public abstract class BaseFragment extends Fragment {
     protected abstract View getContentView(LayoutInflater inflater, @Nullable Bundle savedInstanceState);
 
     // 子类必须实现findById初始化方法
-    protected abstract void findViewByIdView();
+//    protected abstract void findViewByIdView();
 
     // 初始化数据, 可以(不)实现
     protected abstract void ChildRequestServiceData();
