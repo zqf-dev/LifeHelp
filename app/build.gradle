@@ -57,4 +57,10 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
     //java注解
     compile 'org.glassfish:javax.annotation:10.0-b28'
+//    //融云
+//    compile 'cn.rongcloud.android:IMLib:2.8.6'
+//    compile 'cn.rongcloud.android:IMKit:2.8.6'
+//    compile 'cn.rongcloud.android:CallLib:2.8.6'
+//    compile 'cn.rongcloud.android:CallKit:2.8.6'
+//    compile 'cn.rongcloud.android:RedPacket:2.8.6'
 }
