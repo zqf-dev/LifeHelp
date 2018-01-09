@@ -7,6 +7,7 @@ import com.zqf.lifehelp.model.api.factory.StringConverterFactory;
 import com.zqf.lifehelp.model.api.okhttp.OkHttpClientHelp;
 import com.zqf.lifehelp.utils.Constants;
 
+import dagger.Module;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,7 +17,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by zqf
  * Time 2018/1/2 11:27
  */
-
 public class ApiClientHelp {
 
     /**

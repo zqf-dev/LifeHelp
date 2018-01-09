@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/size_300dp"
+    android:layout_height="wrap_content"
     android:background="@mipmap/weather_bg_cloudy_day"
     android:orientation="vertical">
 
@@ -10,7 +10,6 @@
         android:id="@+id/back_image"
         style="@style/wrap_height_wrap_image"
         android:contentDescription="@null"
-        android:padding="@dimen/size_10dp"
         android:src="@mipmap/icon_back"/>
 
     <RelativeLayout

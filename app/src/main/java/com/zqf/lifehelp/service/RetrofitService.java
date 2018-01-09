@@ -2,6 +2,7 @@ package com.zqf.lifehelp.service;
 
 import com.zqf.lifehelp.model.entity.HomeTag;
 import com.zqf.lifehelp.model.entity.TabModel;
+import com.zqf.lifehelp.model.entity.WeatherModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -45,4 +46,17 @@ public interface RetrofitService {
      */
     @GET("/v1/cook/category/query")
     Call<Object> getMenuData(@Query("key") String key);
+
+    /**
+     * 根据城市名查询天气
+     *
+     * @param appkey   key
+     * @param city     城市名
+     * @param province 省份名
+     * @return
+     */
+    @GET("/v1/weather/query")
+    Call<WeatherModel> getWeathApi(@Query("key") String appkey,
+                                         @Query("city") String city,
+                                         @Query("province") String province);
 }

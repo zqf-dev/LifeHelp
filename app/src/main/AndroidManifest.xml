@@ -43,7 +43,7 @@
             android:screenOrientation="portrait" />
         <!--天气-->
         <activity
-            android:name="com.zqf.lifehelp.view.activity.WeatherActivity"
+            android:name="com.zqf.lifehelp.view.activity.Weather"
             android:screenOrientation="portrait" />
         <!--菜单-->
         <activity
@@ -52,10 +52,11 @@
         <!--腾讯x5WebView-->
         <activity
             android:name=".view.activity.TencentWebview"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <!--设置-->
         <activity
-            android:name=".view.activity.SettingActivity"
+            android:name=".view.activity.Setting"
             android:screenOrientation="portrait" />
     </application>
 

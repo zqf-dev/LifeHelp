@@ -9,6 +9,7 @@ import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
+import com.zqf.lifehelp.di.components.NetComponent;
 import com.zqf.lifehelp.utils.LogUtil;
 
 /**
@@ -22,6 +23,8 @@ public class App extends Application {
     private static App instance;
 
     private static Context mContext;
+
+    private NetComponent netComponent;
 
     @Override
     public void onCreate() {
@@ -64,6 +67,10 @@ public class App extends Application {
         Logger.init("LifeHelp")
                 .methodCount(3)
                 .logLevel(logLevel);
+    }
+
+    public NetComponent getNetComponent() {
+        return netComponent;
     }
 
     //获取Sp实例

@@ -16,7 +16,7 @@ import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
 import com.zqf.lifehelp.model.entity.LeftTagModel;
 import com.zqf.lifehelp.view.activity.Recipes;
-import com.zqf.lifehelp.view.activity.WeatherActivity;
+import com.zqf.lifehelp.view.activity.Weather;
 import com.zqf.lifehelp.view.adapter.LeftSlideRecyAdapter;
 import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
 import com.zqf.lifehelp.utils.Util;
@@ -67,7 +67,7 @@ public class FgLeft extends Fragment {
                 Log.e("Tag", pos + "");
                 switch (mStringList.get(pos).getTag_name()) {
                     case "天气预报":
-                        Util.NextActivity(getActivity(), WeatherActivity.class);
+                        Util.NextActivity(getActivity(), Weather.class);
                         break;
                     case "菜谱大全":
                         Util.NextActivity(getActivity(), Recipes.class);

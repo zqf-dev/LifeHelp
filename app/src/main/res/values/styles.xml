@@ -45,11 +45,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/size_15sp</item>
     </style>
-    <!--宽高warp_字体15spTextView-->
+    <!--宽高warp_字体14spTextView-->
     <style name="warp_color_white">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+    <!--宽高warp_字体白颜色15spTextView-->
+    <style name="warp_size15_colorwhite">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_15sp</item>
     </style>
     <!--宽match 高1dp灰色的线-->
     <style name="width_match_line">
@@ -103,5 +110,12 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:contentDescription">@null</item>
+    </style>
+    <!--RecycleView style-->
+    <style name="comm_recycleview_wrapheight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:overScrollMode">never</item>
     </style>
 </resources>

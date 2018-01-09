@@ -6,16 +6,29 @@
 
     <include layout="@layout/base_activity_title_layout"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="3dp"/>
+        android:layout_height="match_parent">
 
-    <com.zqf.lifehelp.view.widget.X5WebView
-        android:id="@+id/teccent_webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <!--<ProgressBar-->
+        <!--android:id="@+id/progressBar"-->
+        <!--style="@android:style/Widget.ProgressBar.Inverse"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"/>-->
+
+        <com.zqf.lifehelp.view.widget.X5WebView
+            android:id="@+id/teccent_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.zqf.lifehelp.view.customview.NetLoadView
+            android:id="@+id/webview_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
 
 
 </LinearLayout>

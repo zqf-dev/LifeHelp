@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.utils.Util;
-import com.zqf.lifehelp.view.activity.SettingActivity;
+import com.zqf.lifehelp.view.activity.Setting;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -61,7 +61,7 @@ public class FgMes extends Fragment {
             case R.id.collect_tv:
                 break;
             case R.id.setting_tv:
-                Util.NextActivity(mActivity, SettingActivity.class);
+                Util.NextActivity(mActivity, Setting.class);
                 break;
         }
     }

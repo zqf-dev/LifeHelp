@@ -1,7 +1,14 @@
 package com.zqf.lifehelp.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
 
 import java.lang.reflect.Array;
 import java.util.Collection;
@@ -21,7 +28,22 @@ public class Util {
     }
 
     /**
-     *
+     * 设置分割线
+     * 设置布局管器
+     */
+    public static void RecycleCommSet(Activity activity, RecyclerView commrecycle, int HorizontalOrVertical) {
+        //分割线
+        int leftRight = (int) activity.getResources().getDimension(R.dimen.size_10dp);
+        int topBottom = (int) activity.getResources().getDimension(R.dimen.size_0_5dp);
+        int lineColor = ContextCompat.getColor(activity, R.color.tinge_gray);
+        commrecycle.addItemDecoration(new SpacesItemDecoration(leftRight, topBottom, lineColor));
+        //创建布局管理
+        LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
+        layoutManager.setOrientation(HorizontalOrVertical);
+        commrecycle.setLayoutManager(layoutManager);
+    }
+
+    /**
      * @param obj
      * @return
      */

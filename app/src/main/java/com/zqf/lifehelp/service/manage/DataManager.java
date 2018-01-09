@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.zqf.lifehelp.model.entity.HomeTag;
 import com.zqf.lifehelp.model.entity.TabModel;
+import com.zqf.lifehelp.model.entity.WeatherModel;
 import com.zqf.lifehelp.service.RetrofitHelper;
 import com.zqf.lifehelp.service.RetrofitService;
 
@@ -45,5 +46,16 @@ public class DataManager {
      */
     public Call<Object> getMenuData(String key) {
         return mRetrofitService.getMenuData(key);
+    }
+
+    /**
+     * 天气
+     *
+     * @param city
+     * @param province
+     * @return
+     */
+    public Call<WeatherModel> getWeathApi(String key, String city, String province) {
+        return mRetrofitService.getWeathApi(key, city, province);
     }
 }

@@ -35,4 +35,6 @@
     <string name="zwwl">加载失败，请点击重新加载</string>
     <string name="again_reload">重新加载</string>
     <string name="out_login_str">退出登录</string>
+    <string name="fature_ten_wearther_str">未来十天预测天气</string>
+    <string name="setting_title_str">设置</string>
 </resources>

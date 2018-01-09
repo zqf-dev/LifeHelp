@@ -1,4 +1,4 @@
-package com.zqf.lifehelp.factory;
+package com.zqf.lifehelp.utils.factory;
 
 import android.app.Activity;
 import android.os.Bundle;

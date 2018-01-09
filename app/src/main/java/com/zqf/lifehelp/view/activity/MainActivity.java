@@ -54,14 +54,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (System.currentTimeMillis() - exitTime > 2000) {
-                Toast.makeText(this, "再点一次退出", Toast.LENGTH_SHORT).show();
-                exitTime = System.currentTimeMillis();
+            if (mainDrawer.isDrawerOpen(findViewById(R.id.fl_left_menu))) {
+                mainDrawer.closeDrawers();
+                return false;
             } else {
-                finish();
-                System.exit(0);
+                if (System.currentTimeMillis() - exitTime > 2000) {
+                    Toast.makeText(this, "再点一次退出", Toast.LENGTH_SHORT).show();
+                    exitTime = System.currentTimeMillis();
+                } else {
+                    finish();
+                    System.exit(0);
+                }
+                return false;
             }
-            return false;
         }
         return super.onKeyDown(keyCode, event);
     }

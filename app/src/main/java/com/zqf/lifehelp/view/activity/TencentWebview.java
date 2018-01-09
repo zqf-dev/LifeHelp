@@ -1,6 +1,7 @@
 package com.zqf.lifehelp.view.activity;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,9 +12,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.orhanobut.logger.Logger;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.CookieSyncManager;
 import com.tencent.smtt.sdk.WebChromeClient;
@@ -23,6 +24,7 @@ import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.utils.LogUtil;
+import com.zqf.lifehelp.view.customview.NetLoadView;
 import com.zqf.lifehelp.view.widget.X5WebView;
 
 import butterknife.Bind;
@@ -43,8 +45,8 @@ public class TencentWebview extends Activity {
     ImageView actLeftIv;
     @Bind(R.id.act_left_tv)
     TextView actLeftTv;
-    @Bind(R.id.progressBar)
-    ProgressBar progressBar;
+    @Bind(R.id.webview_loading)
+    NetLoadView webviewLoading;
     private String sourceurl;
     private String sourlocaldefault = "www.baidu.com";
     private static final int MSG_URL = 0x10;
@@ -54,9 +56,8 @@ public class TencentWebview extends Activity {
             switch (msg.what) {
                 case MSG_URL:
                     LogUtil.logD("加载handler消息");
-                    if (teccentWebview != null) {
-                        teccentWebview.loadUrl(sourceurl);
-                    }
+                    webviewLoading.setStatue(NetLoadView.ALL_GONE);
+                    webviewLoading.setVisibility(View.GONE);
                     break;
             }
         }
@@ -87,23 +88,26 @@ public class TencentWebview extends Activity {
      */
     private void initWebView() {
         actLeftTv.setText("详情");
-        progressBar.setMax(100);
-        progressBar.setProgressDrawable(this.getResources().getDrawable(R.drawable.color_progressbar));
-
+        webviewLoading.setStatue(NetLoadView.LOADING);
         teccentWebview.setWebViewClient(new WebViewClient() {
+
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
+            public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
+                super.onPageStarted(webView, s, bitmap);
+                Logger.e("进度--" + webView.getProgress());
+                webviewLoading.setVisibility(View.VISIBLE);
+                webviewLoading.setStatue(NetLoadView.LOADING);
+                mHandler.sendEmptyMessageDelayed(MSG_URL, 1500);
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                mHandler.sendEmptyMessageDelayed(MSG_URL, 5000);// 5s?
             }
         });
 
         teccentWebview.setWebChromeClient(new WebChromeClient() {
+
             @Override
             public boolean onJsConfirm(WebView webView, String s, String s1, JsResult jsResult) {
                 return super.onJsConfirm(webView, s, s1, jsResult);
@@ -157,11 +161,13 @@ public class TencentWebview extends Activity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         if (teccentWebview != null) {
             teccentWebview.destroy();
-            teccentWebview = null;
         }
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
+        super.onDestroy();
     }
 
     @OnClick({R.id.act_left_iv})

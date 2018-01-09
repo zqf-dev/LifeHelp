@@ -5,7 +5,7 @@ import android.util.Log;
 public class LogUtil {
     private static final boolean flag = true;
 
-    private static final String TAG = "LifeHelp";
+    private static final String TAG = "Tag";
 
     public static void logD(String msg) {
         if (flag)
