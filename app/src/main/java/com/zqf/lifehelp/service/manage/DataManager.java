@@ -2,6 +2,7 @@ package com.zqf.lifehelp.service.manage;
 
 import android.content.Context;
 
+import com.google.gson.JsonObject;
 import com.zqf.lifehelp.model.entity.HomeTag;
 import com.zqf.lifehelp.model.entity.TabModel;
 import com.zqf.lifehelp.model.entity.WeatherModel;
@@ -57,5 +58,14 @@ public class DataManager {
      */
     public Call<WeatherModel> getWeathApi(String key, String city, String province) {
         return mRetrofitService.getWeathApi(key, city, province);
+    }
+
+    /**
+     * 获取城市列表
+     * @param key --mob_key
+     * @return
+     */
+    public Call<JsonObject> getCityApi(String key) {
+        return mRetrofitService.getCityApi(key);
     }
 }

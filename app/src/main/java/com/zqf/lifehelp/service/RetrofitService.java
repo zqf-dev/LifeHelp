@@ -1,5 +1,6 @@
 package com.zqf.lifehelp.service;
 
+import com.google.gson.JsonObject;
 import com.zqf.lifehelp.model.entity.HomeTag;
 import com.zqf.lifehelp.model.entity.TabModel;
 import com.zqf.lifehelp.model.entity.WeatherModel;
@@ -57,6 +58,15 @@ public interface RetrofitService {
      */
     @GET("/v1/weather/query")
     Call<WeatherModel> getWeathApi(@Query("key") String appkey,
-                                         @Query("city") String city,
-                                         @Query("province") String province);
+                                   @Query("city") String city,
+                                   @Query("province") String province);
+
+    /**
+     * 获取城市名列表
+     *
+     * @param appkey key
+     */
+    @GET("/v1/weather/citys")
+    Call<JsonObject> getCityApi(@Query("key") String appkey);
+
 }

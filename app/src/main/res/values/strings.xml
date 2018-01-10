@@ -31,6 +31,7 @@
     <string name="leib_name_str">按菜品选择菜谱</string>
     <string name="more_str">更多</string>
     <string name="netloading_str">正在加载中......</string>
+    <string name="loading_dialog_str">加载中......</string>
     <string name="lps_zwsj">暂无数据</string>
     <string name="zwwl">加载失败，请点击重新加载</string>
     <string name="again_reload">重新加载</string>

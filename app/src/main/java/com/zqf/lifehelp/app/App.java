@@ -10,6 +10,7 @@ import com.orhanobut.logger.Logger;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
 import com.zqf.lifehelp.di.components.NetComponent;
+import com.zqf.lifehelp.service.manage.DataManager;
 import com.zqf.lifehelp.utils.LogUtil;
 
 /**
@@ -71,6 +72,10 @@ public class App extends Application {
 
     public NetComponent getNetComponent() {
         return netComponent;
+    }
+
+    public DataManager getDataManager(Context context) {
+        return new DataManager(context);
     }
 
     //获取Sp实例
