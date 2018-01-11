@@ -10,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
@@ -41,6 +43,32 @@ public class Util {
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
         layoutManager.setOrientation(HorizontalOrVertical);
         commrecycle.setLayoutManager(layoutManager);
+    }
+
+    /**
+     * 读取Assets文件
+     *
+     * @param context
+     * @return
+     */
+    public static String ReadDayDayString(Context context, String file_name) {
+        InputStream is = null;
+        String msg = null;
+        try {
+            is = context.getResources().getAssets().open(file_name);
+            byte[] bytes = new byte[is.available()];
+            is.read(bytes);
+            msg = new String(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return msg;
     }
 
     /**

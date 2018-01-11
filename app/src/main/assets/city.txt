@@ -1,0 +1,323 @@
+﻿{
+  "msg": "success",
+  "result": [
+    {
+      "city": [
+        {
+          "city": "贵阳",
+          "district": [
+            {
+              "district": "贵阳"
+            },
+            {
+              "district": "白云"
+            },
+            {
+              "district": "花溪"
+            },
+            {
+              "district": "乌当"
+            },
+            {
+              "district": "息烽"
+            },
+            {
+              "district": "开阳"
+            },
+            {
+              "district": "修文"
+            },
+            {
+              "district": "清镇"
+            },
+            {
+              "district": "小河"
+            },
+            {
+              "district": "云岩"
+            },
+            {
+              "district": "南明"
+            }
+          ]
+        },
+        {
+          "city": "遵义",
+          "district": [
+            {
+              "district": "遵义"
+            },
+            {
+              "district": "遵义县"
+            },
+            {
+              "district": "仁怀"
+            },
+            {
+              "district": "绥阳"
+            },
+            {
+              "district": "湄潭"
+            },
+            {
+              "district": "凤冈"
+            },
+            {
+              "district": "桐梓"
+            },
+            {
+              "district": "赤水"
+            },
+            {
+              "district": "习水"
+            },
+            {
+              "district": "道真"
+            },
+            {
+              "district": "正安"
+            },
+            {
+              "district": "务川"
+            },
+            {
+              "district": "余庆"
+            },
+            {
+              "district": "汇川"
+            },
+            {
+              "district": "红花岗"
+            }
+          ]
+        },
+        {
+          "city": "安顺",
+          "district": [
+            {
+              "district": "安顺"
+            },
+            {
+              "district": "普定"
+            },
+            {
+              "district": "镇宁"
+            },
+            {
+              "district": "平坝"
+            },
+            {
+              "district": "紫云"
+            },
+            {
+              "district": "关岭"
+            }
+          ]
+        },
+        {
+          "city": "黔南",
+          "district": [
+            {
+              "district": "都匀"
+            },
+            {
+              "district": "贵定"
+            },
+            {
+              "district": "瓮安"
+            },
+            {
+              "district": "长顺"
+            },
+            {
+              "district": "福泉"
+            },
+            {
+              "district": "惠水"
+            },
+            {
+              "district": "龙里"
+            },
+            {
+              "district": "罗甸"
+            },
+            {
+              "district": "平塘"
+            },
+            {
+              "district": "独山"
+            },
+            {
+              "district": "三都"
+            },
+            {
+              "district": "荔波"
+            }
+          ]
+        },
+        {
+          "city": "黔东南",
+          "district": [
+            {
+              "district": "凯里"
+            },
+            {
+              "district": "岑巩"
+            },
+            {
+              "district": "施秉"
+            },
+            {
+              "district": "镇远"
+            },
+            {
+              "district": "黄平"
+            },
+            {
+              "district": "麻江"
+            },
+            {
+              "district": "丹寨"
+            },
+            {
+              "district": "三穗"
+            },
+            {
+              "district": "台江"
+            },
+            {
+              "district": "剑河"
+            },
+            {
+              "district": "雷山"
+            },
+            {
+              "district": "黎平"
+            },
+            {
+              "district": "天柱"
+            },
+            {
+              "district": "锦屏"
+            },
+            {
+              "district": "榕江"
+            },
+            {
+              "district": "从江"
+            }
+          ]
+        },
+        {
+          "city": "铜仁",
+          "district": [
+            {
+              "district": "铜仁"
+            },
+            {
+              "district": "江口"
+            },
+            {
+              "district": "玉屏"
+            },
+            {
+              "district": "万山"
+            },
+            {
+              "district": "思南"
+            },
+            {
+              "district": "印江"
+            },
+            {
+              "district": "石阡"
+            },
+            {
+              "district": "沿河"
+            },
+            {
+              "district": "德江"
+            },
+            {
+              "district": "松桃"
+            }
+          ]
+        },
+        {
+          "city": "毕节",
+          "district": [
+            {
+              "district": "毕节"
+            },
+            {
+              "district": "赫章"
+            },
+            {
+              "district": "金沙"
+            },
+            {
+              "district": "威宁"
+            },
+            {
+              "district": "大方"
+            },
+            {
+              "district": "纳雍"
+            },
+            {
+              "district": "织金"
+            },
+            {
+              "district": "黔西"
+            }
+          ]
+        },
+        {
+          "city": "六盘水",
+          "district": [
+            {
+              "district": "水城"
+            },
+            {
+              "district": "六枝"
+            },
+            {
+              "district": "盘县"
+            }
+          ]
+        },
+        {
+          "city": "黔西南",
+          "district": [
+            {
+              "district": "兴义"
+            },
+            {
+              "district": "晴隆"
+            },
+            {
+              "district": "兴仁"
+            },
+            {
+              "district": "贞丰"
+            },
+            {
+              "district": "望谟"
+            },
+            {
+              "district": "安龙"
+            },
+            {
+              "district": "册亨"
+            },
+            {
+              "district": "普安"
+            }
+          ]
+        }
+      ],
+      "province": "贵州"
+    },
+  ],
+  "retCode": "200"
+}
