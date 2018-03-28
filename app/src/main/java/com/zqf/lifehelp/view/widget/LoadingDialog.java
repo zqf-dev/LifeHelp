@@ -1,6 +1,6 @@
 package com.zqf.lifehelp.view.widget;
 
-import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,7 +14,7 @@ import com.zqf.lifehelp.R;
  * Time 2018/1/10 15:27
  */
 
-public class LoadingDialog extends Dialog {
+public class LoadingDialog extends ProgressDialog {
     private Context mContext;
     private String mLoadingTip;
     private TextView mLoadingTv;

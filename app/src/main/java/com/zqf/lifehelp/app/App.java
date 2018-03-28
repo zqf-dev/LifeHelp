@@ -9,7 +9,6 @@ import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
-import com.zqf.lifehelp.di.components.NetComponent;
 import com.zqf.lifehelp.service.manage.DataManager;
 import com.zqf.lifehelp.utils.LogUtil;
 
@@ -24,8 +23,6 @@ public class App extends Application {
     private static App instance;
 
     private static Context mContext;
-
-    private NetComponent netComponent;
 
     @Override
     public void onCreate() {
@@ -70,10 +67,6 @@ public class App extends Application {
                 .logLevel(logLevel);
     }
 
-    public NetComponent getNetComponent() {
-        return netComponent;
-    }
-
     public DataManager getDataManager(Context context) {
         return new DataManager(context);
     }
@@ -83,6 +76,7 @@ public class App extends Application {
         return mSPUtils;
     }
 
+    //全局获取App
     public static App get(Context context) {
         return (App) context.getApplicationContext();
     }
