@@ -1,15 +1,25 @@
 package com.zqf.lifehelp.view.base;
 
+<<<<<<< HEAD
 import android.app.Activity;
+=======
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.support.v7.app.AppCompatActivity;
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
 import com.zqf.lifehelp.app.App;
 import com.zqf.lifehelp.utils.appmanager.AppManager;
 
@@ -17,7 +27,11 @@ import com.zqf.lifehelp.utils.appmanager.AppManager;
  * Created by zqf on 2017/3/13.
  * 基类Activity
  */
+<<<<<<< HEAD
 public abstract class NewBaseActivity extends Activity {
+=======
+public abstract class NewBaseActivity extends AppCompatActivity {
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
 
     /**
      * 是否沉浸状态栏
@@ -36,17 +50,25 @@ public abstract class NewBaseActivity extends Activity {
      **/
     protected final String TAG = this.getClass().getSimpleName();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Activity管理类
         AppManager.getAppManager().addActivity(this);
+<<<<<<< HEAD
         //注册RxBus
 //        RxBus.get().register(this);
         Log.d(TAG, "BaseActivity-->onCreate()");
         if (isSetStatusBar) {
             steepStatusBar();
         }
+=======
+        Log.d(TAG, "BaseActivity-->onCreate()");
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
     }
 
     /**
@@ -139,8 +161,11 @@ public abstract class NewBaseActivity extends Activity {
         super.onDestroy();
         Log.d(TAG, "onDestroy()");
         AppManager.getAppManager().finishActivity(this);
+<<<<<<< HEAD
         //解除RxBus注册
 //        RxBus.get().unregister(this);
+=======
+>>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
     }
 
     /**

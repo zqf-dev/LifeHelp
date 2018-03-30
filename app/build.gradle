@@ -2,7 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
     defaultConfig {
         applicationId "com.zqf.lifehelp"
         minSdkVersion 14
@@ -10,19 +17,19 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk {
-            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
-        }
+//        ndk {
+//            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+//            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
+//        }
     }
     buildTypes {
         release {
-            buildConfigField("boolean","API_ENV","true")
+            buildConfigField("boolean", "API_ENV", "true")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("boolean","API_ENV","false")
+            buildConfigField("boolean", "API_ENV", "false")
             minifyEnabled false
         }
     }
@@ -34,13 +41,13 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.1.1'
-    compile 'com.android.support:cardview-v7:25.1.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
-    compile 'com.android.support:recyclerview-v7:25.1.1'
     compile 'com.huxq17.xrefreshview:xrefreshview:3.6.9'
-    compile 'com.android.support:support-v4:25.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -57,17 +64,8 @@ dependencies {
     compile 'com.orhanobut:logger:1.15'
     compile files('libs/tbs_sdk_thirdapp_v3.5.0.jar')
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
-    compile 'com.google.dagger:dagger:2.12'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
-    //java注解
-    compile 'org.glassfish:javax.annotation:10.0-b28'
-    //高德地图3D、定位
-    compile 'com.amap.api:3dmap:latest.integration'
-    compile 'com.amap.api:location:latest.integration'
-//    //融云
-//    compile 'cn.rongcloud.android:IMLib:2.8.6'
-//    compile 'cn.rongcloud.android:IMKit:2.8.6'
-//    compile 'cn.rongcloud.android:CallLib:2.8.6'
-//    compile 'cn.rongcloud.android:CallKit:2.8.6'
-//    compile 'cn.rongcloud.android:RedPacket:2.8.6'
+    //ormlite数据库
+    compile files('libs/ormlite-android-5.1.jar')
+    compile files('libs/ormlite-core-5.1.jar')
+    compile files('libs/ormlite-jdbc-5.1.jar')
 }

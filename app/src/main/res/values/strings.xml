@@ -33,7 +33,8 @@
     <string name="more_str">更多</string>
     <string name="netloading_str">正在加载中......</string>
     <string name="loading_dialog_str">加载中......</string>
-    <string name="lps_zwsj">暂无数据</string>
+    <string name="life_zwsj">暂无数据</string>
+    <string name="life_empty">空的空的......</string>
     <string name="zwwl">加载失败，请点击重新加载</string>
     <string name="again_reload">重新加载</string>
     <string name="out_login_str">退出登录</string>
