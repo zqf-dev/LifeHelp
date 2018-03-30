@@ -8,7 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.model.entity.LocalCityModel;
+import com.zqf.lifehelp.model.LocalCityModel;
 
 import java.util.List;
 

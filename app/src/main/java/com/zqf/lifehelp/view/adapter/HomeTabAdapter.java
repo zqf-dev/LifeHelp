@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.model.entity.TabModel;
-import com.zqf.lifehelp.view.customview.recycler.HeaderAndFooterAdapter;
-import com.zqf.lifehelp.view.customview.recycler.ViewHolder;
+import com.zqf.lifehelp.model.TabModel;
+import com.zqf.lifehelp.utils.customview.recycler.HeaderAndFooterAdapter;
+import com.zqf.lifehelp.utils.customview.recycler.ViewHolder;
 
 import java.util.List;
 

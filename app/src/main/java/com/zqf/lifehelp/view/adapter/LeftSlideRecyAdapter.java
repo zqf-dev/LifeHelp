@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
-import com.zqf.lifehelp.model.entity.LeftTagModel;
-import com.zqf.lifehelp.view.customview.recycler.ViewHolder;
+import com.zqf.lifehelp.model.LeftTagModel;
+import com.zqf.lifehelp.utils.customview.recycler.ViewHolder;
 
 import java.util.List;
 

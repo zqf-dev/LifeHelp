@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.zqf.lifehelp"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -25,7 +25,7 @@ android {
     buildTypes {
         release {
             buildConfigField("boolean", "API_ENV", "true")
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
@@ -61,11 +61,15 @@ dependencies {
     compile 'com.blankj:utilcode:1.10.0'
     compile 'com.shizhefei:ViewPagerIndicator:1.1.5'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.orhanobut:logger:1.15'
+    compile 'com.orhanobut:logger:2.1.1'
     compile files('libs/tbs_sdk_thirdapp_v3.5.0.jar')
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     //ormlite数据库
     compile files('libs/ormlite-android-5.1.jar')
     compile files('libs/ormlite-core-5.1.jar')
     compile files('libs/ormlite-jdbc-5.1.jar')
+    compile files('libs/AMap3DMap_5.7.0_AMapLocation_3.7.0.jar')
+    compile 'com.github.chaychan:SlideCloseLib:1.0.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile project(':uikitlibrary')
 }

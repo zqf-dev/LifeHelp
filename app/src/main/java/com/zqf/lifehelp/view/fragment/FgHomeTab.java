@@ -9,15 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.model.entity.TabModel;
-import com.zqf.lifehelp.service.manage.DataManager;
+import com.zqf.lifehelp.api.ApiManager;
+import com.zqf.lifehelp.model.TabModel;
 import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.utils.LogUtil;
-import com.zqf.lifehelp.view.activity.TencentWebview;
+import com.zqf.lifehelp.utils.customview.recycler.CommonRecyclerView;
+import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.view.activity.newsdetail.TencentWebview;
 import com.zqf.lifehelp.view.adapter.HomeTabAdapter;
 import com.zqf.lifehelp.view.base.BaseFragment;
-import com.zqf.lifehelp.view.customview.recycler.CommonRecyclerView;
-import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class FgHomeTab extends BaseFragment implements CommonRecyclerView.LoadMo
     @Bind(R.id.tab_comrecycle)
     CommonRecyclerView tabComrecycle;
     private String mCid;
-    private DataManager mDataManager;
+    private ApiManager mDataManager;
     private int page = 1;//页数
     private int size = 10;//条数
     private List<TabModel.ResultBean.ListBean> mList = new ArrayList<>();
@@ -50,7 +50,7 @@ public class FgHomeTab extends BaseFragment implements CommonRecyclerView.LoadMo
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDataManager = new DataManager(mActivity);
+        mDataManager = new ApiManager();
     }
 
     @Override

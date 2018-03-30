@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.model.entity.WeatherModel;
+import com.zqf.lifehelp.model.WeatherModel;
 
 import java.util.List;
 

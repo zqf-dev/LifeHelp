@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.view.customview.SlideShowView;
+import com.zqf.lifehelp.utils.customview.SlideShowView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

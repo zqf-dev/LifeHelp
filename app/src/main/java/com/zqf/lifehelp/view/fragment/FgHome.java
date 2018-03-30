@@ -22,9 +22,9 @@ import com.shizhefei.view.indicator.slidebar.DrawableBar;
 import com.shizhefei.view.indicator.slidebar.ScrollBar;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.api.ApiManager;
 import com.zqf.lifehelp.app.App;
-import com.zqf.lifehelp.model.entity.HomeTag;
-import com.zqf.lifehelp.service.manage.DataManager;
+import com.zqf.lifehelp.model.HomeTag;
 import com.zqf.lifehelp.utils.Constants;
 
 import butterknife.Bind;
@@ -45,7 +45,7 @@ public class FgHome extends Fragment {
     @Bind(R.id.hoem_vp)
     ViewPager hoemVp;
     IndicatorViewPager mIndicatorViewPager;
-    private DataManager mDataManager;
+    private ApiManager mDataManager;
     private Activity mActivity;
     private String[] mTags_name;
     private String[] mTags_cid;
@@ -61,7 +61,7 @@ public class FgHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View home_view = inflater.inflate(R.layout.home_layout, container, false);
         ButterKnife.bind(this, home_view);
-        mDataManager = new DataManager(mActivity);
+        mDataManager = new ApiManager();
         hometag_data();
         return home_view;
     }

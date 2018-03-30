@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.view.customview.OnInitSelectedPosition;
+import com.zqf.lifehelp.utils.customview.OnInitSelectedPosition;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,11 +5,13 @@ import android.content.Context;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.Utils;
-import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
-import com.zqf.lifehelp.service.manage.DataManager;
+import com.zqf.lifehelp.api.RetrofitHelper;
 import com.zqf.lifehelp.utils.LogUtil;
 
 /**
@@ -27,15 +29,20 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        //App的实例
         instance = this;
+        //ApplicationContext对象
         mContext = getApplicationContext();
+        //工具类初始化
         Utils.init(this);
+        //SharePreference
         mSPUtils = SPUtils.getInstance("life");
+        //初始化日志
         initLogger();
+        //腾讯X5WebView内核初始化
         QbSdk.PreInitCallback preInitCallback = new QbSdk.PreInitCallback() {
             @Override
             public void onCoreInitFinished() {
-
             }
 
             @Override
@@ -44,6 +51,8 @@ public class App extends Application {
             }
         };
         QbSdk.initX5Environment(getApplicationContext(), preInitCallback);
+        //初始化Retrofit
+        RetrofitHelper.getInstance().init();
     }
 
     /**
@@ -56,29 +65,30 @@ public class App extends Application {
      * logAdapter(new AndroidLogAdapter()); //可以自己构造适配器默认：AndroidLogAdapter
      */
     private void initLogger() {
-        LogLevel logLevel;
-        if (!BuildConfig.API_ENV) {
-            logLevel = LogLevel.FULL;
+        //Logger 2.1.1版本使用方法
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(true)  //（可选）是否显示线程信息。 默认值为true
+                .methodCount(2)         // （可选）要显示的方法行数。 默认2
+                .methodOffset(7)        // （可选）隐藏内部方法调用到偏移量。 默认5
+                .tag("LifeHelp")           //（可选）每个日志的全局标记。 默认PRETTY_LOGGER
+                .build();
+        if (BuildConfig.API_ENV) {
+            //日志输出
+            Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
         } else {
-            logLevel = LogLevel.NONE;
+            //上线时停止日志
+            Logger.addLogAdapter(new AndroidLogAdapter() {
+                @Override
+                public boolean isLoggable(int priority, String tag) {
+                    return BuildConfig.DEBUG;
+                }
+            });
         }
-        Logger.init("LifeHelp")
-                .methodCount(3)
-                .logLevel(logLevel);
-    }
-
-    public DataManager getDataManager(Context context) {
-        return new DataManager(context);
     }
 
     //获取Sp实例
     public static SPUtils getSp() {
         return mSPUtils;
-    }
-
-    //全局获取App
-    public static App get(Context context) {
-        return (App) context.getApplicationContext();
     }
 
     /**

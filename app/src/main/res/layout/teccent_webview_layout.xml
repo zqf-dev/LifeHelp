@@ -17,12 +17,12 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_gravity="center"/>-->
 
-        <com.zqf.lifehelp.view.widget.X5WebView
+        <com.zqf.lifehelp.utils.widget.X5WebView
             android:id="@+id/teccent_webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <com.zqf.lifehelp.view.customview.NetLoadView
+        <com.zqf.lifehelp.utils.customview.NetLoadView
             android:id="@+id/webview_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

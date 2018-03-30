@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
 
 import java.io.IOException;
 import java.io.InputStream;

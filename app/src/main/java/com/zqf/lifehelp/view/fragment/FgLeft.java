@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 import com.blankj.utilcode.util.LogUtils;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
-import com.zqf.lifehelp.model.entity.LeftTagModel;
-import com.zqf.lifehelp.view.activity.Recipes;
-import com.zqf.lifehelp.view.activity.Weather;
-import com.zqf.lifehelp.view.adapter.LeftSlideRecyAdapter;
-import com.zqf.lifehelp.view.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.model.LeftTagModel;
 import com.zqf.lifehelp.utils.Util;
+import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.view.activity.leftmenu.Recipes;
+import com.zqf.lifehelp.view.activity.leftmenu.Weather;
+import com.zqf.lifehelp.view.adapter.LeftSlideRecyAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -22,7 +22,7 @@
         android:textColor="@color/gray_0"/>
 
 
-    <com.zqf.lifehelp.view.customview.FlowTagLayout
+    <com.zqf.lifehelp.utils.customview.FlowTagLayout
         android:id="@+id/tag_flowlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

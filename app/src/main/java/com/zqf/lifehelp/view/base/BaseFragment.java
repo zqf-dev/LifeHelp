@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.view.customview.NetLoadView;
+import com.zqf.lifehelp.utils.customview.NetLoadView;
 
 /**
  * Created by zqf on 2017/3/21.

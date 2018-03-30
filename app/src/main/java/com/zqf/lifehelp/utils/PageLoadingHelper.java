@@ -5,7 +5,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.view.customview.LoadingView;
+import com.zqf.lifehelp.utils.customview.LoadingView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

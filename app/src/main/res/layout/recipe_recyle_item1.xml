@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="170dp">
 
-        <com.zqf.lifehelp.view.customview.SlideShowView
+        <com.zqf.lifehelp.utils.customview.SlideShowView
             android:id="@+id/slideShowView"
             android:layout_width="match_parent"
             android:layout_height="150dp"

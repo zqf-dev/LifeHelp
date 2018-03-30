@@ -9,13 +9,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.widget.Toast;
-<<<<<<< HEAD
-
 import com.zqf.lifehelp.utils.LogUtil;
-
-=======
-import com.zqf.lifehelp.utils.LogUtil;
->>>>>>> 8528f9cefeeb088150d594df61cf60cb3df7795a
 import java.util.Stack;
 
 public class AppManager {

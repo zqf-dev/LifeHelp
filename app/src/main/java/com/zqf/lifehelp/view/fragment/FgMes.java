@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.utils.Util;
-import com.zqf.lifehelp.view.activity.Setting;
+import com.zqf.lifehelp.view.activity.personal.Setting;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

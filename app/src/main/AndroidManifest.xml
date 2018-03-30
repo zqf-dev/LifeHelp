@@ -44,10 +44,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.zqf.lifehelp.view.activity.MainActivity">
+        <activity android:name="com.zqf.lifehelp.view.activity.main.MainActivity">
 
         </activity>
-        <activity android:name="com.zqf.lifehelp.view.activity.Splash">
+        <activity android:name="com.zqf.lifehelp.view.activity.advsphlabel.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -64,28 +64,28 @@
         </meta-data>
         <!--标签-->
         <activity
-            android:name="com.zqf.lifehelp.view.activity.TagSelection"
+            android:name="com.zqf.lifehelp.view.activity.advsphlabel.TagSelection"
             android:screenOrientation="portrait"/>
         <!--天气-->
         <activity
-            android:name="com.zqf.lifehelp.view.activity.Weather"
+            android:name="com.zqf.lifehelp.view.activity.leftmenu.Weather"
             android:screenOrientation="portrait"/>
         <!--菜单-->
         <activity
-            android:name="com.zqf.lifehelp.view.activity.Recipes"
+            android:name="com.zqf.lifehelp.view.activity.leftmenu.Recipes"
             android:screenOrientation="portrait"/>
         <!--腾讯x5WebView-->
         <activity
-            android:name=".view.activity.TencentWebview"
+            android:name=".view.activity.newsdetail.TencentWebview"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"/>
         <!--设置-->
         <activity
-            android:name=".view.activity.Setting"
+            android:name=".view.activity.personal.Setting"
             android:screenOrientation="portrait"/>
         <!--城市选择-->
         <activity
-            android:name=".view.activity.ProvinceCity"
+            android:name=".view.activity.leftmenu.ProvinceCity"
             android:screenOrientation="portrait"/>
     </application>
 
