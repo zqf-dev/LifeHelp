@@ -25,6 +25,7 @@
     <string name="explame_str">2017-08-25 20:35</string>
     <string name="explametitle_str"><![CDATA[分享 不得不备的家居好物盘点－把ins风装进家]]></string>
     <string name="nickname_str">昵称</string>
+    <string name="nickname_str_mh">昵称:</string>
     <string name="collect_str">收藏</string>
     <string name="setting_str">设置</string>
     <string name="photo_str">相册</string>
@@ -38,4 +39,12 @@
     <string name="out_login_str">退出登录</string>
     <string name="fature_ten_wearther_str">未来十天预测天气</string>
     <string name="setting_title_str">设置</string>
+    <string name="nickname_hint_str">输入昵称,让大家记住你......</string>
+    <string name="phonenum_str">手机号:</string>
+    <string name="phonenum_hint_str">输入有效的手机号</string>
+    <string name="verificationcode_str">验证码:</string>
+    <string name="pwd_str">密码:</string>
+    <string name="pwd_hint_str">6&#8211;16位字母数字</string>
+    <string name="sure_pwd_str">确认密码:</string>
+    <string name="sure_pwd_hint_str">再次输入密码</string>
 </resources>

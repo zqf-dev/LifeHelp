@@ -49,6 +49,12 @@
         <item name="PermissionBackround">@drawable/shape_bg_white</item>
         <item name="PermissionButtonTextColor">@android:color/white</item>
     </style>
+    <!--宽高warp_字体17spTextView-->
+    <style name="warp_size17">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/size_17sp</item>
+    </style>
     <!--宽高warp_字体16spTextView-->
     <style name="warp_size16">
         <item name="android:layout_width">wrap_content</item>

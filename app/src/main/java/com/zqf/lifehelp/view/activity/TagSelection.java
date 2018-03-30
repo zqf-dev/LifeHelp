@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
 import com.zqf.lifehelp.view.adapter.TagAdapter;
+import com.zqf.lifehelp.view.base.NewBaseActivity;
 import com.zqf.lifehelp.view.customview.FlowTagLayout;
 import com.zqf.lifehelp.view.customview.OnTagSelectListener;
 
@@ -28,7 +28,7 @@ import butterknife.OnClick;
  * Created by zqf on 2017/6/1.
  * 个人喜好标签选择
  */
-public class TagSelection extends AppCompatActivity {
+public class TagSelection extends NewBaseActivity {
 
     @Bind(R.id.tag_tit_tv)
     TextView tagTitTv;
@@ -42,11 +42,13 @@ public class TagSelection extends AppCompatActivity {
     Button tagNextBtn;
     private TagAdapter<String> mAdapter;
     private StringBuilder mSb = new StringBuilder();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tagselect_layout);
         ButterKnife.bind(this);
+        setSteepStatusBar(true);
         init();
     }
 
