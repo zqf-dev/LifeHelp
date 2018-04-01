@@ -3,7 +3,7 @@ package com.zqf.uikitlibrary;
 import android.content.Context;
 
 /**
- * @author chaychan
+ * @author zqf
  * @date 2017/3/7  17:19
  */
 public class UIUtils {

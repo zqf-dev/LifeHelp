@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 
 /**
- * @author ChayChan
+ * @author zqf
  * @description: 顶部提示的View
  * @date 2017/6/23  15:57
  */

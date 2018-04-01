@@ -38,7 +38,7 @@ public class RetrofitHelper {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)//基类BASE_URL
                 .client(client)//默认
-                .client(mOkHttpClientHelp.getOkHttp())//封装过的
+//                .client(mOkHttpClientHelp.getOkHttp())//封装过的
                 .addConverterFactory(factory)//Ggson解析
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//RxJava
                 .build();

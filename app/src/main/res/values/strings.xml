@@ -48,4 +48,9 @@
     <string name="pwd_hint_str">6&#8211;16位字母数字</string>
     <string name="sure_pwd_str">确认密码:</string>
     <string name="sure_pwd_hint_str">再次输入密码</string>
+    <!---->
+    <string name="refresh_pull_down_text">下拉推荐</string>
+    <string name="refresh_release_text">松开推荐</string>
+    <string name="refresh_ing_text">推荐中</string>
+    <!---->
 </resources>

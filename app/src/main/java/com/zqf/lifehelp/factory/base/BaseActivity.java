@@ -17,9 +17,7 @@ import java.util.ListIterator;
 import butterknife.ButterKnife;
 
 /**
- * @author ChayChan
- * @description: activity的基类
- * @date 2017/6/10  16:42
+ * @author zqf
  */
 
 public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {

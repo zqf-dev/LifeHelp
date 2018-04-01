@@ -6,15 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.github.nukc.stateview.StateView;
 import com.zqf.lifehelp.R;
+
 import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 
 /**
- * @author ChayChan
- * @description: Fragment的基类
- * @date 2017/6/10  17:09
+ * @author zqf
  */
 
 public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFragment {
