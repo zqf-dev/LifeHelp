@@ -192,13 +192,11 @@ public class LoadingView extends View {
         }
 
         public void restart() {
-
             stop();
             start();
         }
 
         private void createBallAnimator(Ball ball, int startDelay) {
-
             ValueAnimator valueAnimator = new ValueAnimator();
             valueAnimator.setFloatValues(mMinRadius, mMaxRadius);
             valueAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -233,7 +231,6 @@ public class LoadingView extends View {
 
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
-
             float value = (float) animation.getAnimatedValue();
             ball.setRadius(value);
             invalidate();

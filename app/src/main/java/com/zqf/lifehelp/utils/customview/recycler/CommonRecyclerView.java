@@ -21,7 +21,7 @@ public class CommonRecyclerView extends RecyclerView {
     private OnItemLongClickListener mItemLongClickListener;
     private OnScrollListener mOnScrollListener;
     private LoadMoreListener mLoadMoreListener;
-    private boolean mIsAutoLoadMore = true;//是否自动加载更多
+    private boolean mIsAutoLoadMore = false;//是否自动加载更多
     private HeaderAndFooterAdapter mHeaderAndFooterAdapter;
     private int mLastVisiblePosition = 0;
 

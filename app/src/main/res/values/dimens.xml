@@ -22,6 +22,7 @@
     <dimen name="size_12sp">12sp</dimen>
     <dimen name="size_11sp">11sp</dimen>
     <dimen name="size_10dp">10dp</dimen>
+    <dimen name="size_7dp">7dp</dimen>
     <dimen name="size_5dp">5dp</dimen>
     <dimen name="size_3dp">3dp</dimen>
     <dimen name="size_1dp">1dp</dimen>

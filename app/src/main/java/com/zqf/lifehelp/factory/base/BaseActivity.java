@@ -20,36 +20,30 @@ import butterknife.ButterKnife;
  * @author zqf
  */
 
-public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
 
     protected T mPresenter;
     private static long mPreTime;
     private static Activity mCurrentActivity;// 对所有activity进行管理
     public static List<Activity> mActivities = new LinkedList<Activity>();
-    protected  Bundle savedInstanceState;
+    protected Bundle savedInstanceState;
 
     @Override
     public final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (enableSlideClose()) {
             SlidingLayout rootView = new SlidingLayout(this);
             rootView.bindActivity(this);
         }
-
         this.savedInstanceState = savedInstanceState;
-
         //初始化的时候将其添加到集合中
         synchronized (mActivities) {
             mActivities.add(this);
         }
-
         mPresenter = createPresenter();
-
         //子类不再需要设置布局ID，也不再需要使用ButterKnife.bind()
         setContentView(provideContentViewId());
         ButterKnife.bind(this);
-
         initView();
         initData();
         initListener();
@@ -105,9 +99,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
      * 退出应用的方法
      */
     public static void exitApp() {
-
         ListIterator<Activity> iterator = mActivities.listIterator();
-
         while (iterator.hasNext()) {
             Activity next = iterator.next();
             next.finish();
@@ -123,7 +115,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
      */
     @Override
     public void onBackPressed() {
-        if (mCurrentActivity instanceof MainActivity){
+        if (mCurrentActivity instanceof MainActivity) {
             //如果是主页面
             if (System.currentTimeMillis() - mPreTime > 2000) {// 两次点击间隔大于2秒
 //                UIUtils.showToast("再按一次，退出应用");

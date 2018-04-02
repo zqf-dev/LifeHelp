@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/base_loading_layout"/>
+        <include layout="@layout/basefragment_root_layout"/>
 
         <LinearLayout
             android:id="@+id/base_activity_content"

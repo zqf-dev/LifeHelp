@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by zqf on 2018/3/31.
+ * 新闻接口
  */
 
 public interface INewPresenter {

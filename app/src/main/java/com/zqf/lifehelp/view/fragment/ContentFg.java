@@ -44,7 +44,7 @@ public class ContentFg extends Fragment {
     RelativeLayout contentMain;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    private FgHome mFgHome;
+    private FgTab mFgHome;
     private FgDisc mFgDisc;
     private FgMes mFgMes;
     private Activity mActivity;
@@ -57,7 +57,8 @@ public class ContentFg extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View conten_view = inflater.inflate(R.layout.activi_main_bar, container, false);
+//        View conten_view = inflater.inflate(R.layout.activi_main_bar, container, false);
+        View conten_view = inflater.inflate(R.layout.content_main_fglayout, container, false);
         ButterKnife.bind(this, conten_view);
         DrawerLayout mDrawerLayout = (DrawerLayout) mActivity.findViewById(R.id.main_drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -79,7 +80,7 @@ public class ContentFg extends Fragment {
         switch (i) {
             case 1:
                 if (mFgHome == null) {
-                    mFgHome = new FgHome();
+                    mFgHome = new FgTab();
                     ft.add(R.id.container, mFgHome);
                 } else {
                     ft.show(mFgHome);

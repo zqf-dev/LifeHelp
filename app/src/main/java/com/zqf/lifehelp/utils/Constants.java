@@ -13,4 +13,6 @@ public class Constants {
     public static String BASE_URL = "http://apicloud.mob.com";
 
     public static String CityAssets = "city.txt";
+
+    public static int page_size = 10;//分页数据条数
 }
