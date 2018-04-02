@@ -43,6 +43,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends LazyLoadFrag
         if (getContentView(inflater, savedInstanceState) != null) {
             view.addView(getContentView(inflater, savedInstanceState), 0);
             initBaseView(view);
+
         }
         return view;
     }

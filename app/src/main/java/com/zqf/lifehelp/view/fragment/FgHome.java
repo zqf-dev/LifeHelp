@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
  * Created by zqf
  * Time 2017/6/8 10:06
  */
-public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter, BaseQuickAdapter.OnItemClickListener {
+public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter, BaseQuickAdapter.OnItemClickListener, BaseQuickAdapter.RequestLoadMoreListener {
 
     @Bind(R.id.tab_swipe_refresh)
     SwipeRefreshLayout tabSwipeRefresh;
@@ -77,7 +77,6 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
         tabComrecycle.setAdapter(mTabAdapter);
         //item点击
         mTabAdapter.setOnItemClickListener(this);
-
         /**
          * 刷新
          */
@@ -91,19 +90,11 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
                 tabSwipeRefresh.setRefreshing(false);
             }
         });
-
         /**
          * 加载更多
          */
         mTabAdapter.setEnableLoadMore(true);
-        mTabAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
-                page++;
-                ChildRequestServiceData();
-                mTabAdapter.loadMoreComplete();
-            }
-        }, tabComrecycle);
+        mTabAdapter.setOnLoadMoreListener(this, tabComrecycle);
     }
 
     @Override
@@ -111,6 +102,7 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
         refresh_success_gone();
         mList.addAll(newList);
         mTabAdapter.notifyDataSetChanged();
+        mTabAdapter.loadMoreComplete();
     }
 
     @Override
@@ -135,5 +127,11 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
         Intent detail_intent = new Intent(mActivity, TencentWebview.class);
         detail_intent.putExtra("sourceurl", sourceurl);
         startActivity(detail_intent);
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        page++;
+        ChildRequestServiceData();
     }
 }

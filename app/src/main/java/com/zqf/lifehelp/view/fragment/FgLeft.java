@@ -37,6 +37,7 @@ public class FgLeft extends Fragment {
 
     @Bind(R.id.left_recylv)
     RecyclerView leftRecylv;
+
     private LeftSlideRecyAdapter mAdapter;
     private List<LeftTagModel> mStringList = new ArrayList<>();
 
@@ -85,7 +86,6 @@ public class FgLeft extends Fragment {
                     default:
                         break;
                 }
-
             }
         });
     }

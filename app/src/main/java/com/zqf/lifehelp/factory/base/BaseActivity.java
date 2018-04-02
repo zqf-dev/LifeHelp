@@ -25,7 +25,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     protected T mPresenter;
     private static long mPreTime;
     private static Activity mCurrentActivity;// 对所有activity进行管理
-    public static List<Activity> mActivities = new LinkedList<Activity>();
+    public static List<Activity> mActivities = new LinkedList<>();
     protected Bundle savedInstanceState;
 
     @Override
