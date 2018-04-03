@@ -6,7 +6,7 @@
     android:id="@+id/left_recy_linear"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
@@ -26,10 +26,9 @@
             android:id="@+id/left_recy_tv_name"
             style="@style/warp_size15"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/size_15dp"
             android:gravity="center"
             android:textColor="@color/black"/>
-    </LinearLayout>
+    </FrameLayout>
 
 
 </LinearLayout>

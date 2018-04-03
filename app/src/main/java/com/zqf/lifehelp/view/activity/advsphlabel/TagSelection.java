@@ -13,12 +13,12 @@ import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
-import com.zqf.lifehelp.view.activity.main.MainActivity;
-import com.zqf.lifehelp.view.adapter.TagAdapter;
+import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.utils.customview.FlowTagLayout;
 import com.zqf.lifehelp.utils.customview.OnTagSelectListener;
+import com.zqf.lifehelp.view.activity.main.MainActivity;
+import com.zqf.lifehelp.view.adapter.TagAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -77,15 +77,7 @@ public class TagSelection extends Activity {
         /**
          * 显示的文字数据
          */
-        List<String> dataSource = new ArrayList<>();
-        dataSource.add("天气预报");
-        dataSource.add("菜谱大全");
-        dataSource.add("周公解梦");
-        dataSource.add("八字算命");
-        dataSource.add("健康知识");
-        dataSource.add("今日油价");
-        dataSource.add("基站查询");
-        mAdapter.onlyAddAll(dataSource);
+        mAdapter.onlyAddAll(Constants.dataSource);
     }
 
     @OnClick({R.id.regist_tv, R.id.login_tv})
