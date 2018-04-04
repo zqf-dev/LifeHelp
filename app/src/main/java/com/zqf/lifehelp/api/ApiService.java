@@ -2,6 +2,7 @@ package com.zqf.lifehelp.api;
 
 import com.google.gson.JsonObject;
 import com.zqf.lifehelp.model.HomeTag;
+import com.zqf.lifehelp.model.QueryIDBean;
 import com.zqf.lifehelp.model.TabModel;
 import com.zqf.lifehelp.model.WeatherModel;
 
@@ -84,4 +85,15 @@ public interface ApiService {
     @GET("/v1/weather/citys")
     Call<JsonObject> getCityApi(@Query("key") String appkey);
 
+
+    /**
+     * 身份证信息
+     *
+     * @param key-->Mob申请的Key
+     * @param query_id_num-->对应要查询的身份ID
+     * @return TabModel对象
+     */
+    @GET("/idcard/query")
+    Observable<QueryIDBean> getQueryIDInFoData(@Query("key") String key,
+                                               @Query("cardno") String query_id_num);
 }
