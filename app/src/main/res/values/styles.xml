@@ -8,8 +8,7 @@
         <item name="colorPrimaryDark">@color/custcolorPrimaryDark</item>
         <!--控件选中后的颜色例如：CheckBox、RadioButton等-->
         <item name="colorAccent">@color/colorAccent</item>
-        <!-- 窗口的背景颜色 -->
-        <item name="android:windowBackground">@android:color/white</item>
+        <!--<item name="android:windowBackground">@android:color/white</item> &lt;!&ndash; 窗口的背景颜色 &ndash;&gt;-->
         <!--去掉系统默认的标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
@@ -22,9 +21,9 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--加载中对话框-->
     <style name="ProgressHUD" parent="@android:style/Theme.Dialog">

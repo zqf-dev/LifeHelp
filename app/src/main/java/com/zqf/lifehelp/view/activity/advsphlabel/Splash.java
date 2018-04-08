@@ -24,7 +24,6 @@ import me.weyye.hipermission.PermissionCallback;
 
 public class Splash extends Activity {
 
-
     @Bind(R.id.splash_bg_iv)
     ImageView splashBgIv;
 

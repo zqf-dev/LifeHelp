@@ -9,7 +9,7 @@ import com.zqf.lifehelp.model.QueryIDBean;
 
 public interface IQueryIdPresenter {
 
-    void onGetQueryIDDataSuccess(QueryIDBean.ResultBean bean);
+    void onGetQueryIDDataSuccess(QueryIDBean bean);
 
     void onError();
 }

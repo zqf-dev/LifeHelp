@@ -36,7 +36,7 @@ public class QueryIdPresenter extends BasePresenter<IQueryIdPresenter> {
                     public void onNext(QueryIDBean queryIDBean) {
                         Logger.d("--获取身份证数据" + queryIDBean);
                         if (queryIDBean != null && queryIDBean.getRetCode().equals("200")) {
-                            mView.onGetQueryIDDataSuccess(queryIDBean.getResult());
+                            mView.onGetQueryIDDataSuccess(queryIDBean);
                         }
                     }
                 });

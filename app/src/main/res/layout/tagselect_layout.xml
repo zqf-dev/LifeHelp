@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/size_15dp"
-        android:layout_marginRight="@dimen/size_15dp"
+        android:layout_marginLeft="@dimen/size_10dp"
+        android:layout_marginRight="@dimen/size_10dp"
         android:visibility="visible"/>
 
     <Button

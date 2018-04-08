@@ -19,7 +19,6 @@ public class LoadingDialog extends ProgressDialog {
     private String mLoadingTip;
     private TextView mLoadingTv;
     private int mstyle;
-    private static LoadingDialog sDialog;
 
     public LoadingDialog(Context context, String content, int style) {
         super(context);
@@ -49,21 +48,12 @@ public class LoadingDialog extends ProgressDialog {
         mLoadingTv.setText(str);
     }
 
-    public static LoadingDialog show(Context context, String message, OnCancelListener cancelListener) {
+    public static LoadingDialog show(Context context, String message) {
         if (TextUtils.isEmpty(message)) {
             message = "加载中......";
         }
-        sDialog = new LoadingDialog(context, message + "", R.style.ProgressHUD);
+        LoadingDialog sDialog = new LoadingDialog(context, message + "", R.style.ProgressHUD);
         sDialog.show();
         return sDialog;
-    }
-
-    /**
-     * 销毁
-     */
-    public void destorydialog() {
-        if (sDialog != null) {
-            sDialog.dismiss();
-        }
     }
 }

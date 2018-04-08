@@ -52,5 +52,7 @@
     <string name="refresh_pull_down_text">下拉推荐</string>
     <string name="refresh_release_text">松开推荐</string>
     <string name="refresh_ing_text">推荐中</string>
+    <string name="search_id_str">搜索</string>
+    <string name="query_id_ed_hint_str">请输入身份证号查询</string>
     <!---->
 </resources>

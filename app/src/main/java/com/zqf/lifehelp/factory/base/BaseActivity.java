@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.chaychan.lib.SlidingLayout;
+import com.zqf.lifehelp.utils.widget.LoadingDialog;
 import com.zqf.lifehelp.view.activity.main.MainActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -27,6 +28,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     private static Activity mCurrentActivity;// 对所有activity进行管理
     public static List<Activity> mActivities = new LinkedList<>();
     protected Bundle savedInstanceState;
+    private LoadingDialog mLoadingDialog;
 
     @Override
     public final void onCreate(@Nullable Bundle savedInstanceState) {
@@ -141,6 +143,18 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             EventBus.getDefault().unregister(subscribe);
         }
     }
+
+    public void BaseSetShowLoading() {
+        mLoadingDialog = LoadingDialog.show(this, "");
+    }
+
+    public void BaseOnCancelLinstener() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+            mLoadingDialog = null;
+        }
+    }
+
 
 //    /**
 //     * 申请运行时权限

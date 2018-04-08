@@ -77,4 +77,13 @@ public class QueryIDBean {
             this.sex = sex;
         }
     }
+
+    @Override
+    public String toString() {
+        return "QueryIDBean{" +
+                "msg='" + msg + '\'' +
+                ", result=" + result +
+                ", retCode='" + retCode + '\'' +
+                '}';
+    }
 }

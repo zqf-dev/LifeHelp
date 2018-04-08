@@ -15,27 +15,76 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_7"
             android:gravity="center"
             android:paddingLeft="@dimen/dp_5"
             android:paddingRight="@dimen/dp_5"
-            android:text="搜索" />
+            android:text="@string/search_id_str"
+            android:textColor="@color/search_id_tv_color" />
 
-        <EditText
-            android:id="@+id/queryid_edit"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/dp_10"
+            android:layout_margin="@dimen/dp_7"
             android:layout_toLeftOf="@id/query_search_tv"
-            android:background="@drawable/queryid_edit_bg"
-            android:drawableLeft="@mipmap/search_icon"
-            android:drawablePadding="@dimen/dp_10"
-            android:hint="请输入身份证号查询"
-            android:paddingLeft="@dimen/dp_10"
-            android:textSize="@dimen/sp_13" />
+            android:background="@drawable/queryid_relative_bg">
 
+            <ImageView
+                android:id="@+id/search_id_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:contentDescription="@null"
+                android:src="@mipmap/search_icon" />
 
+            <ImageView
+                android:id="@+id/search_cancel_img"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_5"
+                android:clickable="false"
+                android:contentDescription="@null"
+                android:padding="@dimen/dp_7"
+                android:src="@mipmap/search_clear"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/queryid_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_toLeftOf="@id/search_cancel_img"
+                android:layout_toRightOf="@id/search_id_img"
+                android:background="@drawable/queryid_edit_bg"
+                android:hint="@string/query_id_ed_hint_str"
+                android:paddingLeft="@dimen/dp_10"
+                android:textSize="@dimen/sp_13" />
+        </RelativeLayout>
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_5">
+
+        <!--身份证号:522724199002020015\n地区:贵州省\n出生日期:1990年02月02日\n性别:男-->
+        <TextView
+            android:id="@+id/query_id_result_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_12"
+            android:visibility="visible" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_history_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 
 </LinearLayout>
