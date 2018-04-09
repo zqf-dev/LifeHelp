@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.utils.widget.LoadingDialog;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +36,7 @@ public class Util {
      */
     public static void RecycleCommSet(Activity activity, RecyclerView commrecycle, int HorizontalOrVertical) {
         //分割线
-        int leftRight = (int) activity.getResources().getDimension(R.dimen.size_10dp);
+        int leftRight = (int) activity.getResources().getDimension(R.dimen.size_5dp);
         int topBottom = (int) activity.getResources().getDimension(R.dimen.size_0_5dp);
         int lineColor = ContextCompat.getColor(activity, R.color.tinge_gray);
         commrecycle.addItemDecoration(new SpacesItemDecoration(leftRight, topBottom, lineColor));
@@ -104,6 +105,20 @@ public class Util {
             return length == 0 ? true : false;
         } else {
             return false;
+        }
+    }
+
+    private static LoadingDialog mLoadingDialog;
+
+    //获取网络加载
+    public static void setShowLoading(Context context) {
+        mLoadingDialog = LoadingDialog.show(context, "加载中....");
+    }
+
+    public static void setOnCancelLinstener() {
+        if (mLoadingDialog != null) {
+            mLoadingDialog.dismiss();
+            mLoadingDialog = null;
         }
     }
 }

@@ -77,13 +77,12 @@
             android:id="@+id/query_id_result_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_12"
-            android:visibility="visible" />
+            android:textSize="@dimen/sp_12" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/search_history_recycle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

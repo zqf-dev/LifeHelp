@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/dp_40"
     android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
-        android:layout_marginLeft="@dimen/dp_7"
-        android:layout_marginRight="@dimen/dp_7"
-        android:gravity="center"
-        android:text="清空历史搜索"
-        android:textSize="@dimen/sp_12" />
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_5">
 
+        <ImageView
+            android:id="@+id/search_history_recycle_item_iv"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:contentDescription="@null"
+            android:padding="@dimen/dp_5"
+            android:src="@mipmap/lefttop_icon" />
+
+        <TextView
+            android:id="@+id/search_history_recycle_item_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/search_history_recycle_item_iv"
+            android:drawableLeft="@mipmap/search_icon"
+            android:drawablePadding="@dimen/dp_7"
+            android:gravity="center_vertical"
+            android:text="5227241990102586325" />
+
+
+    </RelativeLayout>
 </LinearLayout>

@@ -5,7 +5,8 @@ import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.zqf.lifehelp.model.QueryIDBean;
+import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.db.table.QueryIdSql;
 
 import java.util.List;
 
@@ -15,14 +16,15 @@ import java.util.List;
  * Time 2018/4/8 15:03
  */
 
-public class SearchHistoryAdapter extends BaseQuickAdapter<QueryIDBean.ResultBean, BaseViewHolder> {
+public class SearchHistoryAdapter extends BaseQuickAdapter<QueryIdSql, BaseViewHolder> {
 
-    public SearchHistoryAdapter(@LayoutRes int layoutResId, @Nullable List<QueryIDBean.ResultBean> data) {
+
+    public SearchHistoryAdapter(@LayoutRes int layoutResId, @Nullable List<QueryIdSql> data) {
         super(layoutResId, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, QueryIDBean.ResultBean item) {
-
+    protected void convert(BaseViewHolder helper, QueryIdSql item) {
+        helper.setText(R.id.search_history_recycle_item_tv, item.getQueryidnum());
     }
 }

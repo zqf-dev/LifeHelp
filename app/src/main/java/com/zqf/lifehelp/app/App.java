@@ -26,6 +26,8 @@ public class App extends Application {
 
     private static Context mContext;
 
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -53,6 +55,7 @@ public class App extends Application {
         QbSdk.initX5Environment(getApplicationContext(), preInitCallback);
         //初始化Retrofit
         RetrofitHelper.getInstance().init();
+        //初始化数据库
     }
 
     /**
@@ -104,4 +107,7 @@ public class App extends Application {
     public static Context getCon() {
         return mContext;
     }
+
+
+
 }

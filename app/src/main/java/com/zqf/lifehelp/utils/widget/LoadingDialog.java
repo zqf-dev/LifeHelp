@@ -1,9 +1,8 @@
 package com.zqf.lifehelp.utils.widget;
 
-import android.app.ProgressDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
@@ -14,19 +13,16 @@ import com.zqf.lifehelp.R;
  * Time 2018/1/10 15:27
  */
 
-public class LoadingDialog extends ProgressDialog {
+public class LoadingDialog extends Dialog {
     private Context mContext;
     private String mLoadingTip;
     private TextView mLoadingTv;
-    private int mstyle;
 
-    public LoadingDialog(Context context, String content, int style) {
-        super(context);
+    public LoadingDialog(Context context, String msg, int style) {
+        super(context, style);
         this.mContext = context;
-        this.mLoadingTip = content;
-        this.mstyle = style;
+        this.mLoadingTip = msg;
         setCanceledOnTouchOutside(false);
-        setCancelable(true);
     }
 
     @Override
@@ -41,18 +37,8 @@ public class LoadingDialog extends ProgressDialog {
         mLoadingTv = (TextView) findViewById(R.id.loadingTextView);
     }
 
-    /**
-     * 设置加载文字
-     */
-    public void setContent(String str) {
-        mLoadingTv.setText(str);
-    }
-
     public static LoadingDialog show(Context context, String message) {
-        if (TextUtils.isEmpty(message)) {
-            message = "加载中......";
-        }
-        LoadingDialog sDialog = new LoadingDialog(context, message + "", R.style.ProgressHUD);
+        LoadingDialog sDialog = new LoadingDialog(context, message, R.style.ProgressHUD);
         sDialog.show();
         return sDialog;
     }

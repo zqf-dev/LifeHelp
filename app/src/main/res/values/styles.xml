@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- toolbar（actionbar）颜色 -->
         <item name="colorPrimary">@color/custcolorPrimaryDark</item>
         <!-- 状态栏颜色 -->
@@ -10,8 +10,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!--<item name="android:windowBackground">@android:color/white</item> &lt;!&ndash; 窗口的背景颜色 &ndash;&gt;-->
         <!--去掉系统默认的标题栏-->
-        <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
