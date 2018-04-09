@@ -15,7 +15,8 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.orhanobut.logger.Logger;
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.db.dao.QueryIdDao;
+import com.zqf.lifehelp.db.daoImpl.QueryIdDao;
+import com.zqf.lifehelp.db.daoImpl.QueryIdDaoImpl;
 import com.zqf.lifehelp.db.table.QueryIdSql;
 import com.zqf.lifehelp.factory.base.BaseActivity;
 import com.zqf.lifehelp.model.QueryIDBean;
@@ -24,6 +25,7 @@ import com.zqf.lifehelp.presenter.QueryIdPresenter;
 import com.zqf.lifehelp.utils.Util;
 import com.zqf.lifehelp.view.adapter.SearchHistoryAdapter;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +58,7 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
     RecyclerView searchHistoryRecycle;
     private SearchHistoryAdapter mAdapter;
     private List<QueryIdSql> mHistorySearchList = new ArrayList<>();
-    private QueryIdDao queryIdDao;
+    private QueryIdDao mQueryIdDao;
 
     @Override
     protected QueryIdPresenter createPresenter() {
@@ -73,7 +75,7 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
         super.initView();
         actLeftTv.setText("身份证号查询");
         //数据库表
-        queryIdDao = new QueryIdDao(this);
+        mQueryIdDao = new QueryIdDaoImpl();
         //分割线||布局风格
         Util.RecycleCommSet(this, searchHistoryRecycle, LinearLayoutManager.VERTICAL);
         //适配
@@ -83,7 +85,6 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
             @Override
             public void onClick(View v) {
                 //清空历史搜索,和数据库
-                queryIdDao.deleteAll(queryIdDao.queryAll());
                 mHistorySearchList.clear();
                 mAdapter.notifyDataSetChanged();
             }
@@ -117,10 +118,16 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
     public void initData() {
         super.initData();
         //查询数据库
-        mHistorySearchList = queryIdDao.queryAll();
-        if (mHistorySearchList != null) {
-            mAdapter.notifyDataSetChanged();
+        try {
+            mHistorySearchList = mQueryIdDao.getAllQueryID();
+            mQueryIdDao.closeRealm();
+            if (mHistorySearchList != null) {
+                mAdapter.notifyDataSetChanged();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 
     @Override
@@ -143,9 +150,6 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
                     + "地址:" + bean.getResult().getArea() + "\n" + "出生日期:" + bean.getResult().getBirthday()
                     + "\n" + "性别:" + bean.getResult().getSex());
             //增加到数据库
-            QueryIdSql queryIdSql = new QueryIdSql(query_idNum);
-            queryIdDao.add(queryIdSql);
-            mHistorySearchList.add(queryIdSql);
             mAdapter.notifyDataSetChanged();
         } else {
             queryIdResultTv.setText(bean.getMsg());

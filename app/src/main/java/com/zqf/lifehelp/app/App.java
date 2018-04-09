@@ -14,6 +14,9 @@ import com.zqf.lifehelp.BuildConfig;
 import com.zqf.lifehelp.api.RetrofitHelper;
 import com.zqf.lifehelp.utils.LogUtil;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 /**
  * Created by zqf on 2017/5/31.
  * pplication类-->设置应用全局的一些属性
@@ -25,8 +28,6 @@ public class App extends Application {
     private static App instance;
 
     private static Context mContext;
-
-
 
     @Override
     public void onCreate() {
@@ -55,7 +56,11 @@ public class App extends Application {
         QbSdk.initX5Environment(getApplicationContext(), preInitCallback);
         //初始化Retrofit
         RetrofitHelper.getInstance().init();
-        //初始化数据库
+        //初始化Realm数据库
+        Realm.init(this);
+        //使用默认Realm配置
+        RealmConfiguration  mRealmBuilder = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(mRealmBuilder);
     }
 
     /**
@@ -108,6 +113,13 @@ public class App extends Application {
         return mContext;
     }
 
-
+    /**
+     * 获得Realm对象
+     *
+     * @return
+     */
+    public Realm getRealm() {
+        return Realm.getDefaultInstance();
+    }
 
 }

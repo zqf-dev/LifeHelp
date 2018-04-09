@@ -1,20 +1,24 @@
 package com.zqf.lifehelp.db.table;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 /**
  * class from
  * Created by zqf
  * Time 2018/4/9 15:37
  */
-@DatabaseTable(tableName = "queryidsql")
-public class QueryIdSql {
+public class QueryIdSql extends RealmObject {
+    //主键必须添加注解
+    @PrimaryKey
+    private int query_id;
+    //注解设为Required代表必须项
+    @Required
+    private String queryidnum;
 
-    @DatabaseField(generatedId = true, columnName = "id", useGetSet = true)
-    public int query_id;
-    @DatabaseField(useGetSet = true, columnName = "queryidnum", canBeNull = true, defaultValue = "")
-    public String queryidnum;
+    public QueryIdSql() {
+    }
 
     public QueryIdSql(String queryidnum) {
         this.queryidnum = queryidnum;
