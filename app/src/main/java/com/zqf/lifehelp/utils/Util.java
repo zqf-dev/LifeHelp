@@ -108,6 +108,12 @@ public class Util {
         }
     }
 
+
+    public static String QueryIDNumPermissKey(String msg) {
+        return msg.substring(msg.length() - 4, msg.length());
+    }
+
+
     private static LoadingDialog mLoadingDialog;
 
     //获取网络加载

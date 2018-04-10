@@ -12,10 +12,8 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
 import com.zqf.lifehelp.api.RetrofitHelper;
+import com.zqf.lifehelp.db.help.RealmHelp;
 import com.zqf.lifehelp.utils.LogUtil;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 /**
  * Created by zqf on 2017/5/31.
@@ -57,10 +55,7 @@ public class App extends Application {
         //初始化Retrofit
         RetrofitHelper.getInstance().init();
         //初始化Realm数据库
-        Realm.init(this);
-        //使用默认Realm配置
-        RealmConfiguration  mRealmBuilder = new RealmConfiguration.Builder().build();
-        Realm.setDefaultConfiguration(mRealmBuilder);
+        RealmHelp.getInstance().init(this);
     }
 
     /**
@@ -112,14 +107,4 @@ public class App extends Application {
     public static Context getCon() {
         return mContext;
     }
-
-    /**
-     * 获得Realm对象
-     *
-     * @return
-     */
-    public Realm getRealm() {
-        return Realm.getDefaultInstance();
-    }
-
 }

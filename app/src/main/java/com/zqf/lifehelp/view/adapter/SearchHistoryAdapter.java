@@ -25,6 +25,7 @@ public class SearchHistoryAdapter extends BaseQuickAdapter<QueryIdSql, BaseViewH
 
     @Override
     protected void convert(BaseViewHolder helper, QueryIdSql item) {
-        helper.setText(R.id.search_history_recycle_item_tv, item.getQueryidnum());
+        helper.setText(R.id.search_history_recycle_item_tv, item.getQueryidnum())
+                .addOnClickListener(R.id.search_history_recycle_item_iv);
     }
 }

@@ -12,24 +12,20 @@ import io.realm.annotations.Required;
 public class QueryIdSql extends RealmObject {
     //主键必须添加注解
     @PrimaryKey
-    private int query_id;
+    private String query_id;
     //注解设为Required代表必须项
     @Required
     private String queryidnum;
 
-    public QueryIdSql() {
-    }
-
-    public QueryIdSql(String queryidnum) {
-        this.queryidnum = queryidnum;
-    }
-
-    public int getQuery_id() {
+    public String getQuery_id() {
         return query_id;
     }
 
-    public void setQuery_id(int query_id) {
+    public void setQuery_id(String query_id) {
         this.query_id = query_id;
+    }
+
+    public QueryIdSql() {
     }
 
     public String getQueryidnum() {
@@ -38,5 +34,13 @@ public class QueryIdSql extends RealmObject {
 
     public void setQueryidnum(String queryidnum) {
         this.queryidnum = queryidnum;
+    }
+
+    @Override
+    public String toString() {
+        return "QueryIdSql{" +
+                "query_id='" + query_id + '\'' +
+                ", queryidnum='" + queryidnum + '\'' +
+                '}';
     }
 }

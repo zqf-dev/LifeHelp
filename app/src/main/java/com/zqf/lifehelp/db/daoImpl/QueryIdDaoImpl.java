@@ -1,11 +1,12 @@
 package com.zqf.lifehelp.db.daoImpl;
 
-import com.zqf.lifehelp.app.App;
+import com.orhanobut.logger.Logger;
 import com.zqf.lifehelp.db.table.QueryIdSql;
 
 import java.sql.SQLException;
 import java.util.List;
 
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -16,40 +17,54 @@ import io.realm.RealmResults;
  */
 
 public class QueryIdDaoImpl implements QueryIdDao {
-    private Realm mRealm;
-
-    public QueryIdDaoImpl() {
-        mRealm = App.getInstance().getRealm();
-    }
 
     @Override
-    public void insert(QueryIdSql queryIdSql) throws SQLException {
-        mRealm.beginTransaction();//必须先开启事务
-        mRealm.copyToRealm(queryIdSql);//把QueryIdSql对象复制到Realm
-        mRealm.commitTransaction();//提交事务
-        mRealm.close();//必须关闭，不然会造成内存泄漏
+    public void insert(final QueryIdSql queryIdSql) throws SQLException {
+        Realm mRealm = Realm.getDefaultInstance();
+        mRealm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.copyToRealm(queryIdSql);
+            }
+        });
+        mRealm.close();
     }
 
     @Override
     public List<QueryIdSql> getAllQueryID() throws SQLException {
-        List<QueryIdSql> mAllQueryIDList = null;
+        List<QueryIdSql> mList = null;
+        Realm mRealm = Realm.getDefaultInstance();
         RealmResults<QueryIdSql> realmResults = mRealm.where(QueryIdSql.class).findAll();
-        mAllQueryIDList = realmResults;
-        return mAllQueryIDList;
+        Logger.e("查询数据库所有搜索记录\n" + mRealm.copyFromRealm(realmResults).toString());
+        mList = mRealm.copyFromRealm(realmResults);
+        mRealm.close();
+        return mList;
     }
 
     @Override
-    public void insertQueryIdAsync(QueryIdSql queryIdSql) throws SQLException {
-
+    public Integer insertQueryIdAsync(QueryIdSql queryIdSql, String queryid_key) throws SQLException {
+        List<QueryIdSql> mList = null;
+        Realm mRealm = Realm.getDefaultInstance();
+        RealmResults<QueryIdSql> realmResults = mRealm.where(QueryIdSql.class).equalTo("query_id", queryid_key, Case.INSENSITIVE).findAll();
+        Logger.e("条件查询数据库所有记录\n" + mRealm.copyFromRealm(realmResults).toString());
+        mList = mRealm.copyFromRealm(realmResults);
+        mRealm.close();
+        if (mList != null && mList.size() > 0) {
+            return -1;
+        }
+        return 0;
     }
 
     @Override
     public void deleteAll() throws SQLException {
-
-    }
-
-    @Override
-    public void closeRealm() {
+        Realm mRealm = Realm.getDefaultInstance();
+        mRealm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.delete(QueryIdSql.class);
+                realm.deleteAll();
+            }
+        });
         mRealm.close();
     }
 }

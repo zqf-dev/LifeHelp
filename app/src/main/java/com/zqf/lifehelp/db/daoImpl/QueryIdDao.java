@@ -14,11 +14,19 @@ import java.util.List;
 public interface QueryIdDao {
 
     /**
+     * 清楚所有
+     *
+     * @throws SQLException
+     */
+    void deleteAll() throws SQLException;
+
+    /**
      * 插入一条搜索记录
      *
      * @throws SQLException
      */
     void insert(QueryIdSql queryIdSql) throws SQLException;
+
 
     /**
      * 获得所有的记录
@@ -28,24 +36,18 @@ public interface QueryIdDao {
     List<QueryIdSql> getAllQueryID() throws SQLException;
 
     /**
-     * 异步添加用户
+     * 按条件搜索
      *
+     * @param queryIdSql
+     * @param queryid_key
      * @throws SQLException
      */
-    void insertQueryIdAsync(QueryIdSql queryIdSql) throws SQLException;
-
-    /**
-     * 清楚所有
-     *
-     * @throws SQLException
-     */
-    void deleteAll() throws SQLException;
-
-    /**
-     * 关闭事务
-     */
-    void closeRealm();
-
+    Integer insertQueryIdAsync(QueryIdSql queryIdSql, String queryid_key) throws SQLException;
+//    /**
+//     * 关闭事务
+//     */
+//    void closeRealm();
+//
 //    /**
 //     * 更新一个用户
 //     * @param user 需要更新的用户类
