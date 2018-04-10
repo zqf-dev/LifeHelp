@@ -85,9 +85,11 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (queryidEdit.getText().toString().length() > 0) {
                     searchCancelImg.setVisibility(View.VISIBLE);
+                    searchHistoryRecycle.setVisibility(View.GONE);
                 } else {
                     queryIdResultTv.setText("");
                     searchCancelImg.setVisibility(View.GONE);
+                    searchHistoryRecycle.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -98,6 +100,18 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
         });
     }
 
+    //初始化RecycleView
+    private void recycleviewinit() {
+        //分割线||布局风格
+        Util.RecycleCommSet(this, searchHistoryRecycle, LinearLayoutManager.VERTICAL);
+        //适配
+        mAdapter = new SearchHistoryAdapter(R.layout.history_recycle_item_layout, mHistorySearchList);
+        searchHistoryRecycle.setAdapter(mAdapter);
+        mAdapter.addFooterView(addFooterView(removeFootView()));
+        mAdapter.setOnItemClickListener(this);
+        mAdapter.setOnItemChildClickListener(this);
+    }
+
     @Override
     public void initData() {
         super.initData();
@@ -106,38 +120,12 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
             mHistorySearchList = mQueryIdDao.getAllQueryID();
             if (mHistorySearchList != null && mHistorySearchList.size() > 0) {
                 recycleviewinit();
-                mAdapter.notifyDataSetChanged();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    //初始化RecycleView
-    private void recycleviewinit() {
-        //分割线||布局风格
-        Util.RecycleCommSet(this, searchHistoryRecycle, LinearLayoutManager.VERTICAL);
-        //适配
-        mAdapter = new SearchHistoryAdapter(R.layout.history_recycle_item_layout, mHistorySearchList);
-        searchHistoryRecycle.setAdapter(mAdapter);
-        mAdapter.addFooterView(getFooterView(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //清空历史搜索,和数据库
-                try {
-                    mQueryIdDao.deleteAll();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                mHistorySearchList.clear();
-                mAdapter.notifyDataSetChanged();
-            }
-        }));
-        mAdapter.setOnItemClickListener(this);
-        mAdapter.setOnItemChildClickListener(this);
-        mAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
-        mAdapter.isFirstOnly(false);
-    }
 
     @Override
     public void onGetQueryIDDataSuccess(QueryIDBean bean) {
@@ -159,24 +147,36 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
             queryIdResultTv.setText("身份证号:" + query_idNum + "\n"
                     + "地址:" + bean.getResult().getArea() + "\n" + "出生日期:" + bean.getResult().getBirthday()
                     + "\n" + "性别:" + bean.getResult().getSex());
-            //增加到数据库
-            try {
-                final QueryIdSql sql = new QueryIdSql();
-                sql.setQuery_id(queryid_key);
-                sql.setQueryidnum(query_idNum);
-                int flag = mQueryIdDao.insertQueryIdAsync(sql, queryid_key);
-                if (flag != -1) {
-                    Logger.e("插入new数据");
-                    mQueryIdDao.insert(sql);
-                    mHistorySearchList.add(sql);
-                    mAdapter.notifyDataSetChanged();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Logger.e("插入 search 数据异常");
-            }
+            addHistorySearchDB(queryid_key, query_idNum);
         } else {
             queryIdResultTv.setText(bean.getMsg());
+        }
+    }
+
+    /**
+     * 增加到数据库
+     *
+     * @param queryid_key 主键
+     * @param query_idNum 身份证号
+     */
+    private void addHistorySearchDB(String queryid_key, String query_idNum) {
+        try {
+            final QueryIdSql sql = new QueryIdSql();
+            sql.setQuery_id(queryid_key);
+            sql.setQueryidnum(query_idNum);
+            int flag = mQueryIdDao.insertQueryIdAsync(sql, queryid_key);
+            if (flag != -1) {
+                Logger.e("插入new数据");
+                mQueryIdDao.insert(sql);
+                if (mHistorySearchList.size() == 0) {
+                    recycleviewinit();
+                }
+                mHistorySearchList.add(sql);
+                mAdapter.notifyDataSetChanged();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Logger.e("插入 search 数据异常");
         }
     }
 
@@ -202,11 +202,25 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
         }
     }
 
+    /**
+     * item的点击
+     *
+     * @param adapter
+     * @param view
+     * @param position
+     */
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
         queryidEdit.setText(mHistorySearchList.get(position).getQueryidnum());
     }
 
+    /**
+     * item的子控件点击
+     *
+     * @param adapter
+     * @param view
+     * @param position
+     */
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
         if (!TextUtils.isEmpty(mHistorySearchList.get(position).getQueryidnum())) {
@@ -214,10 +228,29 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
         }
     }
 
-    private View getFooterView(View.OnClickListener listener) {
+    //添加脚view
+    private View addFooterView(View.OnClickListener listener) {
         View view = getLayoutInflater().inflate(R.layout.recycle_foot_view, (ViewGroup) searchHistoryRecycle.getParent(), false);
         view.setOnClickListener(listener);
         return view;
+    }
+
+    //移除脚view
+    private View.OnClickListener removeFootView() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //清空历史搜索,和数据库
+                try {
+                    mQueryIdDao.deleteAll();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                mHistorySearchList.clear();
+                mAdapter.notifyDataSetChanged();
+                searchHistoryRecycle.setVisibility(View.GONE);
+            }
+        };
     }
 
     @Override
@@ -228,6 +261,4 @@ public class QueryID extends BaseActivity<QueryIdPresenter> implements IQueryIdP
             mHistorySearchList = null;
         }
     }
-
-
 }
