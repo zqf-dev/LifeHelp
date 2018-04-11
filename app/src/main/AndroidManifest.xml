@@ -55,16 +55,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- 定位需要的服务 -->
-        <service android:name="com.amap.api.location.APSService">
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="yiteng123#familyapp" />
+        <!-- 声明SDK所需的service SDK核心功能-->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
 
-        </service>
         <!--高德地图Key-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="d74463179f20fee50d5d8a2941f486d0">
 
         </meta-data>
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService"/>
         <!--标签-->
         <activity
             android:name="com.zqf.lifehelp.view.activity.advsphlabel.TagSelection"

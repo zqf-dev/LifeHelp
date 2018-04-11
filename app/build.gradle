@@ -67,4 +67,5 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     compile files('libs/AMap3DMap_5.7.0_AMapLocation_3.7.0.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile files('libs/hyphenatechat_3.3.9.jar')
 }
