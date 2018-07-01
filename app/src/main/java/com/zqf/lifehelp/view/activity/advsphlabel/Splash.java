@@ -50,7 +50,7 @@ public class Splash extends Activity {
                 } else {
                     //检测权限
                     HiPermission.create(Splash.this)
-                            .animStyle(R.style.PermissionAnimFade)
+                            .style(R.style.PermissionBlueStyle)
                             .checkMutiPermission(MyHiPermission);
                 }
             }
