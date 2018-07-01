@@ -149,11 +149,7 @@ public class App extends Application {
         return mSPUtils;
     }
 
-    /**
-     * 全局获取App
-     *
-     * @return App
-     */
+    //全局获取App
     public static App getInstance() {
         return instance;
     }
