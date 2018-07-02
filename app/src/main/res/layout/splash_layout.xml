@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <ImageView
@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@null"
         android:scaleType="fitXY"
-        android:src="@drawable/login_background"/>
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/splash_title_name"
@@ -21,7 +21,7 @@
         android:layout_marginTop="30dp"
         android:text="@string/splash_str"
         android:textColor="@color/permissionColorWhite"
-        android:textSize="@dimen/size_30sp"/>
+        android:textSize="@dimen/size_30sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,6 +30,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:text="@string/copyright_str"
-        android:textColor="@color/permissionColorWhite"/>
+        android:textColor="@color/permissionColorWhite" />
 
 </RelativeLayout>

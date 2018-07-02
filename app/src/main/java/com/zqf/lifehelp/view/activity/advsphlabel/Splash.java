@@ -3,13 +3,14 @@ package com.zqf.lifehelp.view.activity.advsphlabel;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
+import android.os.Handler;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
+import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.view.activity.main.MainActivity;
 
 import butterknife.Bind;
@@ -25,42 +26,16 @@ import me.weyye.hipermission.PermissionCallback;
 public class Splash extends Activity {
 
     @Bind(R.id.splash_bg_iv)
-    ImageView splashBgIv;
+    ImageView splash_bg_iv;
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_layout);
         ButterKnife.bind(this);
-        /**
-         渐变动画
-         */
-        AlphaAnimation animation = new AlphaAnimation(0.3f, 1f);
-        animation.setDuration(2000);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                if (App.getSp().getBoolean("splash_permiss", false)) {
-                    MainIntent();
-                } else {
-                    //检测权限
-                    HiPermission.create(Splash.this)
-                            .style(R.style.PermissionBlueStyle)
-                            .checkMutiPermission(MyHiPermission);
-                }
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        splashBgIv.startAnimation(animation);
+        Glide.with(this).load(R.drawable.login_background).into(splash_bg_iv);
+        HiPermission.create(Splash.this).style(R.style.PermissionBlueStyle).checkMutiPermission(MyHiPermission);
     }
 
     /**
@@ -71,7 +46,6 @@ public class Splash extends Activity {
         public void onClose() {
             //用户关闭权限操作--退出App
             Logger.i("-PermissionCallback--onClose");
-            App.getSp().put("splash_permiss", false);
             finish();
         }
 
@@ -79,7 +53,6 @@ public class Splash extends Activity {
         public void onFinish() {
             //所有权限申请完成
             Logger.i("-PermissionCallback--onFinish");
-            App.getSp().put("splash_permiss", true);
             MainIntent();
         }
 
@@ -98,11 +71,25 @@ public class Splash extends Activity {
      * 跳转主页面或Tag页面判断
      */
     private void MainIntent() {
-        if (App.getSp().getBoolean("isSelectTag", false)) {
-            startActivity(new Intent(Splash.this, MainActivity.class));
-        } else {
-            startActivity(new Intent(Splash.this, TagSelection.class));
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (App.getSp().getBoolean(Constants.isSelectTag, false)) {
+                    startActivity(new Intent(Splash.this, MainActivity.class));
+                } else {
+                    startActivity(new Intent(Splash.this, TagSelection.class));
+                }
+                finish();
+            }
+        }, 1200);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+            mHandler = null;
         }
-        finish();
     }
 }

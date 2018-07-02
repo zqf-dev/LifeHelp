@@ -1,9 +1,6 @@
 package com.zqf.lifehelp.view.activity.advsphlabel;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +10,7 @@ import android.widget.TextView;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
+import com.zqf.lifehelp.factory.base.NBaseActivity;
 import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.utils.customview.FlowTagLayout;
 import com.zqf.lifehelp.utils.customview.OnTagSelectListener;
@@ -22,14 +20,13 @@ import com.zqf.lifehelp.view.adapter.TagAdapter;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by zqf on 2017/6/1.
  * 个人喜好标签选择
  */
-public class TagSelection extends Activity {
+public class TagSelection extends NBaseActivity {
 
     @Bind(R.id.tag_tit_tv)
     TextView tagTitTv;
@@ -45,14 +42,12 @@ public class TagSelection extends Activity {
     private StringBuilder mSb = new StringBuilder();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.tagselect_layout);
-        ButterKnife.bind(this);
-        init();
+    protected int getLayout() {
+        return R.layout.tagselect_layout;
     }
 
-    private void init() {
+    @Override
+    public void initView() {
         mAdapter = new TagAdapter<>(this);
         tagFlowlayout.setTagCheckedMode(FlowTagLayout.FLOW_TAG_CHECKED_MULTI);
         tagFlowlayout.setAdapter(mAdapter);
@@ -96,7 +91,6 @@ public class TagSelection extends Activity {
 
     @OnClick(R.id.tag_next_btn)
     public void onViewClicked() {
-        App.getSp().put("isSelectTag", true);//是否选择了标签
         SaveTag();
         startActivity(new Intent(TagSelection.this, MainActivity.class));
         finish();
@@ -106,6 +100,7 @@ public class TagSelection extends Activity {
      * 保存选中的标签
      */
     private void SaveTag() {
+        App.getSp().put(Constants.isSelectTag, true);//是否选择了标签
         if (TextUtils.isEmpty(mSb.toString())
                 || mSb.toString().equals("null")
                 || mSb.toString().length() == 0) {

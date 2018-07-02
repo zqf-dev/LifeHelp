@@ -11,23 +11,24 @@ import java.util.List;
 
 public class Constants {
 
+    //MOB_KEY
     public static String MOBKEY = "1b8a769191c30";
-
+    //BASE_URL
     public static String BASE_URL = "http://apicloud.mob.com";
-
+    //城市选择文件
     public static String CityAssets = "city.txt";
-
-    public static int page_size = 10;//分页数据条数
-
-
+    //分页数据条数
+    public static int page_size = 10;
     //标签数据
     public static List<String> dataSource;
+    //标签是否选择
+    public static String isSelectTag = "isSelectTag";
 
     static {
         dataSource = new ArrayList<>();
         dataSource.add("天气预报");
-        dataSource.add("身份证查询");
         dataSource.add("彩票开奖");
+        dataSource.add("身份证查询");
         dataSource.add("菜谱大全");
         dataSource.add("周公解梦");
         dataSource.add("八字算命");

@@ -48,7 +48,9 @@
         <activity android:name="com.zqf.lifehelp.view.activity.main.MainActivity">
 
         </activity>
-        <activity android:name="com.zqf.lifehelp.view.activity.advsphlabel.Splash">
+        <activity
+            android:name="com.zqf.lifehelp.view.activity.advsphlabel.Splash"
+            android:theme="@style/AppSplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -87,7 +89,7 @@
 
         </meta-data>
         <!-- 定位需要的服务 -->
-        <service android:name="com.amap.api.location.APSService"/>
+        <service android:name="com.amap.api.location.APSService" />
         <!--标签-->
         <activity
             android:name="com.zqf.lifehelp.view.activity.advsphlabel.TagSelection"

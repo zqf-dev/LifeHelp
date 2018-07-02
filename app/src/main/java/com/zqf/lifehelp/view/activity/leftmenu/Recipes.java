@@ -1,6 +1,5 @@
 package com.zqf.lifehelp.view.activity.leftmenu;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,6 +7,7 @@ import android.widget.Toast;
 
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.api.ApiManager;
+import com.zqf.lifehelp.factory.base.NBaseActivity;
 import com.zqf.lifehelp.model.MenuSort;
 import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.view.adapter.RecipesAdapter;
@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,8 +30,7 @@ import retrofit2.Response;
  * Time 2017/6/27 9:57
  */
 
-public class Recipes extends Activity {
-
+public class Recipes extends NBaseActivity {
 
     @Bind(R.id.recipes_recycle)
     RecyclerView recipesRecycle;
@@ -48,10 +46,18 @@ public class Recipes extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.recipes_layout);
-        ButterKnife.bind(this);
         mDataManager = new ApiManager();
         menu_data();
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.recipes_layout;
+    }
+
+    @Override
+    protected void initView() {
+
     }
 
     /**

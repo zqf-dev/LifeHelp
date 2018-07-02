@@ -16,6 +16,23 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
     </style>
 
+    <!-- Splash theme. -->
+    <style name="AppSplashTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- toolbar（actionbar）颜色 -->
+        <item name="colorPrimary">@color/custcolorPrimaryDark</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/custcolorPrimaryDark</item>
+        <!--控件选中后的颜色例如：CheckBox、RadioButton等-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:windowBackground">@android:color/white</item> &lt;!&ndash; 窗口的背景颜色 &ndash;&gt;-->
+        <!--去掉系统默认的标题栏-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/custcolorPrimaryDark</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
     <style name="FullScreenTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
@@ -64,7 +81,7 @@
     <style name="warp_size15">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/size_15sp</item>
+        <item name="android:textSize">@dimen/sp_13</item>
     </style>
     <!--宽高warp_字体14spTextView-->
     <style name="warp_color_white">
