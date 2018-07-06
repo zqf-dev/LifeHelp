@@ -1,5 +1,7 @@
-package com.zqf.lifehelp.factory.base;
+package com.zqf.lifehelp.factory;
 
+
+import com.zqf.lifehelp.factory.base.BaseFragment;
 
 /**
  * Created by zqf on 2017/6/6.

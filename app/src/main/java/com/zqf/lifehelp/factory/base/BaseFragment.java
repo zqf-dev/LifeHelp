@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.factory.LazyLoadFragment;
 import com.zqf.lifehelp.utils.customview.NetLoadView;
 
 import org.greenrobot.eventbus.EventBus;

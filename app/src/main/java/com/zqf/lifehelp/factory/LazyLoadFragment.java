@@ -1,4 +1,4 @@
-package com.zqf.lifehelp.factory.base;
+package com.zqf.lifehelp.factory;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

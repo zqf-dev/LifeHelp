@@ -70,4 +70,6 @@ dependencies {
     compile files('libs/hyphenatechat_3.3.9.jar')
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
     compile ('com.alibaba.android:vlayout:1.2.8@aar') { transitive = true }
+    compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
+    compile 'com.hannesdorfmann.mosby:viewstate:2.0.1'
 }
