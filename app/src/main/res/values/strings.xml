@@ -44,7 +44,7 @@
     <string name="phonenum_str">手机号:</string>
     <string name="phonenum_hint_str">输入有效的手机号(非必填)</string>
     <string name="verificationcode_str">验证码:</string>
-    <string name="pwd_str">密&#160;&#160;码:</string>
+    <string name="pwd_str">密&#160;&#160;码:&#160;</string>
     <string name="pwd_hint_str">6&#8211;16位字母数字</string>
     <string name="sure_pwd_str">确认密码:</string>
     <string name="sure_pwd_hint_str">再次输入密码</string>
