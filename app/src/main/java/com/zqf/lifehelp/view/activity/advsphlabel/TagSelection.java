@@ -104,7 +104,7 @@ public class TagSelection extends NBaseActivity {
         if (TextUtils.isEmpty(mSb.toString())
                 || mSb.toString().equals("null")
                 || mSb.toString().length() == 0) {
-            String tag_msg = "天气预报,菜谱大全,周公解梦,八字算命,健康知识,今日油价,基站查询";
+            String tag_msg = "天气预报,身份查询,今日油价,周公解梦,八字算命,健康知识,基站查询";
             App.getSp().put("tag", tag_msg);
         } else {
             App.getSp().put("tag", mSb.toString());
