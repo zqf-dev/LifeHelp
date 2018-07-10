@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <FrameLayout
@@ -22,19 +23,14 @@
             android:textColor="@color/title_color" />
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_20"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/comm_registapp_ll_style">
 
         <TextView
             style="@style/warp_size15"
             android:text="@string/nickname_str_mh" />
 
         <EditText
+            android:id="@+id/register_nickname_edit"
             style="@style/warp_size15"
             android:layout_height="@dimen/dp_40"
             android:layout_marginLeft="@dimen/dp_5"
@@ -48,17 +44,14 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/comm_registapp_ll_style">
 
         <TextView
             style="@style/warp_size15"
             android:text="@string/phonenum_str" />
 
         <EditText
+            android:id="@+id/register_phonenum_edit"
             style="@style/warp_size15"
             android:layout_height="@dimen/dp_40"
             android:layout_marginLeft="@dimen/dp_5"
@@ -71,17 +64,14 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/comm_registapp_ll_style">
 
         <TextView
             style="@style/warp_size15"
             android:text="@string/pwd_str" />
 
         <EditText
+            android:id="@+id/register_psw_edit"
             style="@style/warp_size15"
             android:layout_height="@dimen/dp_40"
             android:layout_marginLeft="@dimen/dp_5"
@@ -101,17 +91,14 @@
             android:padding="@dimen/dp_10" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/comm_registapp_ll_style">
 
         <TextView
             style="@style/warp_size15"
             android:text="@string/sure_pwd_str" />
 
         <EditText
+            android:id="@+id/register_surepsw_edit"
             style="@style/warp_size15"
             android:layout_height="@dimen/dp_40"
             android:layout_marginLeft="@dimen/dp_5"
@@ -121,8 +108,16 @@
             android:hint="@string/sure_pwd_hint_str"
             android:inputType="text"
             android:textSize="@dimen/sp_13" />
-
     </LinearLayout>
 
+    <Button
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_35"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/register_btn_bg"
+        android:text="@string/sure_register_btn_str"
+        android:textColor="@color/search_id_tv_color"
+        android:textSize="@dimen/sp_13" />
 
 </LinearLayout>
