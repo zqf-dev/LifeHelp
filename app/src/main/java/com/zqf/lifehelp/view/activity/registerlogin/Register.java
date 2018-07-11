@@ -43,9 +43,7 @@ public class Register extends NBaseActivity {
     }
 
     @Override
-    protected void initView() {
-
-    }
+    protected void initView() {}
 
     @OnClick({R.id.register_back_img, R.id.register_psw_open_close_tv
             , R.id.register_again_psw_open_close_tv, R.id.register_sure_btn})
