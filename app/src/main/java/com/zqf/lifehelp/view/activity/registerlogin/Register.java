@@ -57,17 +57,13 @@ public class Register extends NBaseActivity {
         userDao = new UserDaoImpl();
     }
 
-    @OnClick({R.id.register_back_img, R.id.register_psw_open_close_tv
-            , R.id.register_again_psw_open_close_tv, R.id.register_sure_btn})
+    @OnClick({R.id.register_back_img, R.id.register_psw_open_close_tv, R.id.register_sure_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.register_back_img:
                 finish();
                 break;
             case R.id.register_psw_open_close_tv:
-
-                break;
-            case R.id.register_again_psw_open_close_tv:
 
                 break;
             case R.id.register_sure_btn:
