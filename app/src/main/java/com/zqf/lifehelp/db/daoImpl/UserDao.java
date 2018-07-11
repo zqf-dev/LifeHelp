@@ -11,7 +11,7 @@ import java.util.List;
  * Time 2018/4/9 15:56
  */
 
-interface UserDao {
+public interface UserDao {
 
     /**
      * 清楚所有用户

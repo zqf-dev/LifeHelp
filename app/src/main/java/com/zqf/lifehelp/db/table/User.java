@@ -12,7 +12,7 @@ import io.realm.annotations.Required;
 public class User extends RealmObject{
 
     @PrimaryKey
-    public int user_id;//随机生成
+    public String user_id;//随机生成
     @Required
     public String account;//昵称
     @Required
@@ -20,11 +20,11 @@ public class User extends RealmObject{
     public String headimg;//头像
     public String phonennum;//手机号
 
-    public int getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
