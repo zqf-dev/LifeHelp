@@ -81,6 +81,12 @@
     <style name="warp_size15">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+    <!--宽高warp_字体13spTextView-->
+    <style name="warp_size13">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/sp_13</item>
     </style>
     <!--宽高warp_字体14spTextView-->
@@ -155,5 +161,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/white</item>
         <item name="android:overScrollMode">never</item>
+    </style>
+    <!--注册的Linear-->
+    <style name="comm_registapp_ll_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dp_20</item>
+        <item name="android:layout_marginRight">@dimen/dp_10</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 </resources>

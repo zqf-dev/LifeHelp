@@ -18,7 +18,6 @@ import com.zqf.lifehelp.model.LeftTagModel;
 import com.zqf.lifehelp.utils.Util;
 import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
 import com.zqf.lifehelp.view.activity.leftmenu.QueryID;
-import com.zqf.lifehelp.view.activity.leftmenu.Recipes;
 import com.zqf.lifehelp.view.activity.leftmenu.Weather;
 import com.zqf.lifehelp.view.adapter.LeftSlideRecyAdapter;
 
@@ -72,9 +71,9 @@ public class FgLeft extends Fragment {
                         Util.NextActivity(getActivity(), Weather.class);
                         break;
                     case "菜谱大全":
-                        Util.NextActivity(getActivity(), Recipes.class);
+//                        Util.NextActivity(getActivity(), Recipes.class);
                         break;
-                    case "身份证查询":
+                    case "身份查询":
                         Util.NextActivity(getActivity(), QueryID.class);
                         break;
                     case "周公解梦":

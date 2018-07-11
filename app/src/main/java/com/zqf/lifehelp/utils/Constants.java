@@ -28,7 +28,7 @@ public class Constants {
         dataSource = new ArrayList<>();
         dataSource.add("天气预报");
         dataSource.add("彩票开奖");
-        dataSource.add("身份证查询");
+        dataSource.add("身份查询");
         dataSource.add("菜谱大全");
         dataSource.add("周公解梦");
         dataSource.add("八字算命");

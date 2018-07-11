@@ -26,7 +26,12 @@ import com.zqf.lifehelp.model.WeatherModel;
 import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.utils.MapLocationUtil;
 import com.zqf.lifehelp.utils.customview.recycler.SpacesItemDecoration;
+import com.zqf.lifehelp.utils.eventmsg.EtMsg;
 import com.zqf.lifehelp.view.adapter.NewWeatherAdapter;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,17 +75,14 @@ public class Weather extends Activity implements AMapLocationListener, Permissio
         setContentView(R.layout.weather_layout);
         ButterKnife.bind(this);
         mManager = new ApiManager();
+        EventBus.getDefault().register(this);
         initView();
-        if (TextUtils.isEmpty(App.getSp().getString("province", ""))) {
-            //申请定位位置权限
-            HiPermission.create(this).checkSinglePermission(Manifest.permission.ACCESS_FINE_LOCATION, this);
-        } else {
-            requestdata(App.getSp().getString("province"), App.getSp().getString("city"));
-        }
+        //申请定位位置权限
+        HiPermission.create(this).checkSinglePermission(Manifest.permission.ACCESS_FINE_LOCATION, this);
     }
 
     private void initView() {
-        actLeftTv.setText(R.string.fature_ten_wearther_str);
+        actLeftTv.setText(R.string.fature_five_wearther_str);
         //分割线
         int leftRight = (int) getResources().getDimension(R.dimen.size_10dp);
         int topBottom = (int) getResources().getDimension(R.dimen.size_0_5dp);
@@ -111,6 +113,10 @@ public class Weather extends Activity implements AMapLocationListener, Permissio
             public void onResponse(Call<WeatherModel> call, Response<WeatherModel> response) {
                 Logger.e("请求数据--body-" + response.body());
                 if (response.body().getRetCode().equals("200")) {
+                    if (mList == null) {
+                        mList = new ArrayList<>();
+                    }
+                    mList.clear();
                     for (WeatherModel.ResultBean bean : response.body().getResult()) {
                         mList.addAll(bean.getFuture());
                     }
@@ -150,6 +156,7 @@ public class Weather extends Activity implements AMapLocationListener, Permissio
             mList = null;
         }
         destroyLocation();
+        EventBus.getDefault().unregister(this);
     }
 
     /**
@@ -184,6 +191,7 @@ public class Weather extends Activity implements AMapLocationListener, Permissio
             App.getSp().put("city", city);
             requestdata(province, city);
         } else {
+            actRightTv.setText("定位失败");
             ToastUtils.showShort("定位失败,请添加城市");
         }
     }
@@ -200,15 +208,21 @@ public class Weather extends Activity implements AMapLocationListener, Permissio
         }
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(EtMsg msg) {
+        if (msg.getMsg_type().equals("city_choose")) {
+            requestdata(App.getSp().getString("provice"), msg.getMsg());
+        }
+    }
+
+
     //申请定位位置权限
     @Override
     public void onClose() {
-
     }
 
     @Override
     public void onFinish() {
-
     }
 
     @Override

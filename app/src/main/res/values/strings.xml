@@ -25,7 +25,7 @@
     <string name="explame_str">2017-08-25 20:35</string>
     <string name="explametitle_str"><![CDATA[分享 不得不备的家居好物盘点－把ins风装进家]]></string>
     <string name="nickname_str">昵称</string>
-    <string name="nickname_str_mh">昵称:</string>
+    <string name="nickname_str_mh">昵&#160;称:</string>
     <string name="collect_str">收藏</string>
     <string name="setting_str">设置</string>
     <string name="photo_str">相册</string>
@@ -38,13 +38,13 @@
     <string name="zwwl">加载失败，请点击重新加载</string>
     <string name="again_reload">重新加载</string>
     <string name="out_login_str">退出登录</string>
-    <string name="fature_ten_wearther_str">未来十天预测天气</string>
+    <string name="fature_five_wearther_str">未来五天预测天气</string>
     <string name="setting_title_str">设置</string>
     <string name="nickname_hint_str">输入昵称,让大家记住你......</string>
     <string name="phonenum_str">手机号:</string>
-    <string name="phonenum_hint_str">输入有效的手机号</string>
+    <string name="phonenum_hint_str">输入有效的手机号(非必填)</string>
     <string name="verificationcode_str">验证码:</string>
-    <string name="pwd_str">密码:</string>
+    <string name="pwd_str">密&#160;&#160;码:&#160;</string>
     <string name="pwd_hint_str">6&#8211;16位字母数字</string>
     <string name="sure_pwd_str">确认密码:</string>
     <string name="sure_pwd_hint_str">再次输入密码</string>
@@ -54,5 +54,7 @@
     <string name="refresh_ing_text">推荐中</string>
     <string name="search_id_str">搜索</string>
     <string name="query_id_ed_hint_str">请输入身份证号查询</string>
+    <string name="sure_register_btn_str">确定注册</string>
+    <string name="disc_no_register_tip_tv_str">未授权! 点击注册</string>
     <!---->
 </resources>

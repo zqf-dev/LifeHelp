@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/disc_no_register_tip_tv"
+            style="@style/warp_size15"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/dp_10"
+            android:drawableTop="@mipmap/zwxx"
+            android:gravity="center"
+            android:text="@string/disc_no_register_tip_tv_str" />
+
+    </FrameLayout>
 
 </LinearLayout>

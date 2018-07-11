@@ -1,6 +1,7 @@
 package com.zqf.lifehelp.view.activity.leftmenu;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,14 +9,16 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.orhanobut.logger.Logger;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.model.LocalCityModel;
 import com.zqf.lifehelp.utils.Constants;
 import com.zqf.lifehelp.utils.Util;
+import com.zqf.lifehelp.utils.eventmsg.EtMsg;
+import com.zqf.lifehelp.utils.tipdialog.TipComDiaLog;
 import com.zqf.lifehelp.utils.widget.LoadingDialog;
 import com.zqf.lifehelp.view.adapter.CityAdapter;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,11 +67,40 @@ public class ProvinceCity extends Activity {
         cityExpanlistview.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                String ss = mList_Province.get(i).getCityBeanList().get(i1).getDistrict();
-                Logger.e(ss);
+                final String ss = mList_Province.get(i).getCityBeanList().get(i1).getDistrict();
+                String super_msg = mList_Province.get(i).getTitle();
+                 String show_msg = super_msg.equals(ss) ? ss : super_msg + "-->" + ss;
+                if (!TextUtils.isEmpty(show_msg)) {
+                    TipComDiaLog.TipSureError(ProvinceCity.this, "选择城市-->" + show_msg, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            EventBus.getDefault().post(new EtMsg("city_choose", ss));
+                            finish();
+                        }
+                    });
+                }
                 return true;
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mList_Province != null) {
+            mList_Province.clear();
+            mList_Province = null;
+        }
+        if (mList_city != null) {
+            mList_city.clear();
+            mList_city = null;
+        }
     }
 
     //本地解析
