@@ -85,6 +85,26 @@ public class Register extends NBaseActivity {
         }
     }
 
+//    {
+//        "action": "post",
+//            "application": "1fa973d0-86cf-11e6-9089-c7738f07272e",
+//            "path": "/users",
+//            "uri": "https://a1.easemob.com/yiteng123/familyapp/users",
+//            "entities": [
+//        {
+//            "uuid": "4163c800-85a0-11e8-a9a8-2980d8365c7a",
+//                "type": "user",
+//                "created": 1531378397312,
+//                "modified": 1531378397312,
+//                "username": "test1",
+//                "activated": true
+//        }
+//        ],
+//        "timestamp": 1531378397314,
+//            "duration": 0,
+//            "organization": "yiteng123",
+//            "applicationName": "familyapp"
+//    }
     //注册用户
     private void mregisterUser(final String nick_name, final String pasw) {
         if (TipUtil.toastTip(nick_name, "请输入昵称!")) {
