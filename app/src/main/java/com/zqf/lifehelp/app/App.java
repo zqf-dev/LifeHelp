@@ -134,13 +134,14 @@ public class App extends Application {
             //日志输出
             Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
         } else {
-            //上线时停止日志
+            //上线时停止
             Logger.addLogAdapter(new AndroidLogAdapter() {
                 @Override
                 public boolean isLoggable(int priority, String tag) {
                     return BuildConfig.DEBUG;
                 }
             });
+
         }
     }
 

@@ -18,12 +18,14 @@ android {
     }
     buildTypes {
         release {
-            buildConfigField("boolean", "API_ENV", "true")
+            //不显示Log
+            buildConfigField("boolean", "API_ENV", "false")
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("boolean", "API_ENV", "false")
+            //显示Log
+            buildConfigField("boolean", "API_ENV", "true")
             minifyEnabled false
         }
     }
