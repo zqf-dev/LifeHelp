@@ -59,4 +59,15 @@ public class User extends RealmObject{
     public void setPhonennum(String phonennum) {
         this.phonennum = phonennum;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "user_id='" + user_id + '\'' +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                ", headimg='" + headimg + '\'' +
+                ", phonennum='" + phonennum + '\'' +
+                '}';
+    }
 }
