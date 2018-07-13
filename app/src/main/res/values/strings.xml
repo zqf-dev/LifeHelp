@@ -56,5 +56,7 @@
     <string name="query_id_ed_hint_str">请输入身份证号查询</string>
     <string name="sure_register_btn_str">确定注册</string>
     <string name="disc_no_register_tip_tv_str">未授权! 点击注册</string>
+    <string name="login_account_hint_str">请输入账号</string>
+    <string name="login_psw_hint_str">请输入密码</string>
     <!---->
 </resources>

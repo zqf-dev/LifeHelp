@@ -4,4 +4,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <include layout="@layout/base_activity_title_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/login_account_edit"
+            style="@style/login_edit_style"
+            android:hint="@string/login_account_hint_str"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/login_psw_edit"
+            style="@style/login_edit_style"
+            android:layout_below="@id/login_account_edit"
+            android:hint="@string/login_psw_hint_str"
+            android:inputType="textPassword" />
+    </RelativeLayout>
 </LinearLayout>
