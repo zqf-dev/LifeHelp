@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.factory.base.BaseFragment;
@@ -38,7 +39,7 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
     @Bind(R.id.tab_comrecycle)
     RecyclerView tabComrecycle;
     private String mCid;
-    private int page = 1;//页数
+    private int page = 1;//页数参数
     private List<TabModel.ResultBean.ListBean> mList = new ArrayList<>();
     private CommHomeTabAdapter mTabAdapter;
 
@@ -77,22 +78,17 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
         tabComrecycle.setAdapter(mTabAdapter);
         //item点击
         mTabAdapter.setOnItemClickListener(this);
-        /**
-         * 刷新
-         */
+        //刷新
         tabSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 page = 1;
-                mList.clear();
                 ChildRequestServiceData();
                 mTabAdapter.notifyDataSetChanged();
                 tabSwipeRefresh.setRefreshing(false);
             }
         });
-        /**
-         * 加载更多
-         */
+        //加载更多
         mTabAdapter.setEnableLoadMore(true);
         mTabAdapter.setOnLoadMoreListener(this, tabComrecycle);
     }
@@ -100,7 +96,21 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
     @Override
     public void onGetNewsListSuccess(List<TabModel.ResultBean.ListBean> newList, String tipInfo) {
         refresh_success_gone();
-        mList.addAll(newList);
+        if (page == 1) {
+            //刷新情况
+            if (mList.size() > 0) {
+                //不是首次加载判断数据是否更新了
+                if (newList.get(0).getTitle().equals(mList.get(0).getTitle())) {
+                    ToastUtils.showShort("已是最新内容!");
+                    return;
+                }
+                mList.addAll(0, newList);
+            } else {
+                mList.addAll(newList);
+            }
+        } else {
+            mList.addAll(newList);
+        }
         mTabAdapter.notifyDataSetChanged();
         mTabAdapter.loadMoreComplete();
     }

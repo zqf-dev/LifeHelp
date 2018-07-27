@@ -8,12 +8,12 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by zqf on 2017/5/22.
  * Retrofit助手类
  */
-
 public class RetrofitHelper {
 
     private OkHttpClient client = new OkHttpClient();//默认使用
@@ -24,7 +24,11 @@ public class RetrofitHelper {
 
     public static RetrofitHelper getInstance() {
         if (instance == null) {
-            instance = new RetrofitHelper();
+            synchronized (RetrofitHelper.class) {
+                if (instance == null) {
+                    instance = new RetrofitHelper();
+                }
+            }
         }
         return instance;
     }
@@ -34,12 +38,13 @@ public class RetrofitHelper {
     }
 
     public void init() {
+        //带封装的OkHttp
 //        mOkHttpClientHelp = new OkHttpClientHelp(App.getCon());
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)//基类BASE_URL
                 .client(client)//默认
-//                .client(mOkHttpClientHelp.getOkHttp())//封装过的
                 .addConverterFactory(factory)//Ggson解析
+                .addConverterFactory(ScalarsConverterFactory.create())//String解析
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//RxJava
                 .build();
     }

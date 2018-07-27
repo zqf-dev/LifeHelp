@@ -23,7 +23,6 @@ import com.tencent.smtt.sdk.WebSettings.LayoutAlgorithm;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 import com.zqf.lifehelp.R;
-import com.zqf.lifehelp.utils.LogUtil;
 import com.zqf.lifehelp.utils.customview.NetLoadView;
 import com.zqf.lifehelp.utils.widget.X5WebView;
 
@@ -48,14 +47,14 @@ public class TencentWebview extends Activity {
     @Bind(R.id.webview_loading)
     NetLoadView webviewLoading;
     private String sourceurl;
-    private String sourlocaldefault = "www.baidu.com";
+    private String sourlocaldefault = "http://192.168.1.109:8080/Demo/demo2-hls-html5.html";
     private static final int MSG_URL = 0x10;
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_URL:
-                    LogUtil.logD("加载handler消息");
+                    Logger.e("加载handler消息");
                     webviewLoading.setStatue(NetLoadView.ALL_GONE);
                     webviewLoading.setVisibility(View.GONE);
                     break;
@@ -136,13 +135,13 @@ public class TencentWebview extends Activity {
         // webSetting.setRenderPriority(WebSettings.RenderPriority.HIGH);
         // webSetting.setPreFectch(true);
         long time = System.currentTimeMillis();
-        LogUtil.logD("加载url");
+        Logger.e("加载url");
         if (sourceurl.equals("null") || TextUtils.isEmpty(sourceurl)) {
             teccentWebview.loadUrl(sourlocaldefault);
         } else {
             teccentWebview.loadUrl(sourceurl);
         }
-        LogUtil.logD("time-cost-cost time: " + (System.currentTimeMillis() - time));
+        Logger.e("time-cost-cost time: " + (System.currentTimeMillis() - time));
         CookieSyncManager.createInstance(this);
         CookieSyncManager.getInstance().sync();
     }
