@@ -2,6 +2,7 @@ package com.zqf.lifehelp.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static com.zqf.lifehelp.utils.Constants.REFRESH_MILLIS;
+
 /**
  * class from-->首页共用懒加载的Fragment
  * --CommonRecyclerView---
@@ -42,6 +45,7 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
     private int page = 1;//页数参数
     private List<TabModel.ResultBean.ListBean> mList = new ArrayList<>();
     private CommHomeTabAdapter mTabAdapter;
+    private Handler mHandler = new Handler();
 
     @Override
     public View getContentView(LayoutInflater inflater, Bundle savedInstanceState) {
@@ -117,7 +121,13 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
 
     @Override
     public void onError() {
-        refresh_failed();
+        if (page == 1 && mList.size() == 0) {
+            refresh_failed();
+        } else if (page == 1 && mList.size() > 0) {
+            ToastUtils.showShort("失败;请检查网络!");
+        } else {
+            mTabAdapter.loadMoreFail();
+        }
     }
 
     @Override
@@ -141,7 +151,22 @@ public class FgHome extends BaseFragment<NewPresenter> implements INewPresenter,
 
     @Override
     public void onLoadMoreRequested() {
-        page++;
-        ChildRequestServiceData();
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                page++;
+                ChildRequestServiceData();
+                mTabAdapter.loadMoreComplete();
+            }
+        }, REFRESH_MILLIS);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+            mHandler = null;
+        }
     }
 }
