@@ -9,7 +9,9 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.widget.Toast;
-import com.zqf.lifehelp.utils.LogUtil;
+
+import com.orhanobut.logger.Logger;
+
 import java.util.Stack;
 
 public class AppManager {
@@ -33,7 +35,7 @@ public class AppManager {
      * 添加Activity到堆栈
      */
     public void addActivity(Activity activity) {
-        LogUtil.logD("addActivity");
+        Logger.e("addActivity");
         if (activityStack == null) {
             activityStack = new Stack<Activity>();
         }

@@ -23,6 +23,8 @@ public class Constants {
     public static List<String> dataSource;
     //标签是否选择
     public static String isSelectTag = "isSelectTag";
+    //刷新的时间
+    public static int REFRESH_MILLIS = 1000;
 
     static {
         dataSource = new ArrayList<>();

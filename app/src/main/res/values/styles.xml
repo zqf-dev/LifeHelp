@@ -171,4 +171,13 @@
         <item name="android:layout_marginTop">@dimen/dp_10</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    <!--登录的EditStyle-->
+    <style name="login_edit_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:paddingRight">@dimen/dp_10</item>
+        <item name="android:paddingLeft">@dimen/dp_10</item>
+        <item name="android:textSize">@dimen/sp_13</item>
+    </style>
 </resources>

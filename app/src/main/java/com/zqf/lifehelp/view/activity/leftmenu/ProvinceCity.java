@@ -69,21 +69,22 @@ public class ProvinceCity extends Activity {
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 final String ss = mList_Province.get(i).getCityBeanList().get(i1).getDistrict();
                 String super_msg = mList_Province.get(i).getTitle();
-                 String show_msg = super_msg.equals(ss) ? ss : super_msg + "-->" + ss;
+                String show_msg = super_msg.equals(ss) ? ss : super_msg + "-->" + ss;
                 if (!TextUtils.isEmpty(show_msg)) {
-                    TipComDiaLog.TipSureError(ProvinceCity.this, "选择城市-->" + show_msg, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            EventBus.getDefault().post(new EtMsg("city_choose", ss));
-                            finish();
-                        }
-                    });
+                    TipComDiaLog.TipSureError(ProvinceCity.this, "选择城市-->" + show_msg, false
+                            , true, true, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    EventBus.getDefault().post(new EtMsg("city_choose", ss));
+                                    finish();
+                                }
+                            });
                 }
                 return true;
             }

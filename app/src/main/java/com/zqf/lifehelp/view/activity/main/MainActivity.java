@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.zqf.lifehelp.R;
+import com.zqf.lifehelp.utils.appmanager.AppManager;
 import com.zqf.lifehelp.view.fragment.ContentFg;
 import com.zqf.lifehelp.view.fragment.FgLeft;
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        AppManager.getAppManager().addActivity(this);
         initfg();
     }
 

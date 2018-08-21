@@ -45,11 +45,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.zqf.lifehelp.view.activity.main.MainActivity">
+        <activity
+            android:name="com.zqf.lifehelp.view.activity.main.MainActivity"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name="com.zqf.lifehelp.view.activity.advsphlabel.Splash"
+            android:screenOrientation="portrait"
             android:theme="@style/AppSplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
