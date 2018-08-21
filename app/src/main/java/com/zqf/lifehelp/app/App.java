@@ -18,7 +18,6 @@ import com.tencent.smtt.sdk.QbSdk;
 import com.zqf.lifehelp.BuildConfig;
 import com.zqf.lifehelp.api.RetrofitHelper;
 import com.zqf.lifehelp.db.help.RealmHelp;
-import com.zqf.lifehelp.utils.LogUtil;
 
 import java.util.Iterator;
 import java.util.List;
@@ -56,7 +55,7 @@ public class App extends Application {
 
             @Override
             public void onViewInitFinished(boolean b) {
-                LogUtil.logD("x5初始化返回结果--" + b);
+                Logger.e("x5初始化返回结果--" + b);
             }
         };
         QbSdk.initX5Environment(getApplicationContext(), preInitCallback);
@@ -141,7 +140,6 @@ public class App extends Application {
                     return BuildConfig.DEBUG;
                 }
             });
-
         }
     }
 
