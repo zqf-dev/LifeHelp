@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion rootProject.ext.compileSdk
+    buildToolsVersion rootProject.ext.buildToolsVersion
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
@@ -10,11 +10,12 @@ android {
     }
     defaultConfig {
         applicationId "com.zqf.lifehelp"
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -73,7 +74,7 @@ dependencies {
     compile files('libs/tbs_sdk_thirdapp_v3.5.0.jar')
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     compile files('libs/AMap3DMap_5.7.0_AMapLocation_3.7.0.jar')
-    compile 'org.greenrobot:eventbus:3.0.0'
+    compile "org.greenrobot:eventbus:$rootProject.ext.eventbusVersion"
     compile files('libs/hyphenatechat_3.3.9.jar')
     compile 'com.gyf.barlibrary:barlibrary:2.3.0'
     compile('com.alibaba.android:vlayout:1.2.8@aar') { transitive = true }
