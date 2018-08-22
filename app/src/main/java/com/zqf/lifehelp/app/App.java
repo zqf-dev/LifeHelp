@@ -140,7 +140,6 @@ public class App extends Application {
                     return BuildConfig.DEBUG;
                 }
             });
-
         }
     }
 

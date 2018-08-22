@@ -1,0 +1,11 @@
+ext {
+
+    minSdk = 14
+    targetSdk = 23
+    buildToolsVersion = "25.0.3"
+    compileSdk = 25
+
+    eventbusVersion = '3.0.0'
+    okhttpVersion = '3.7.0'
+    retrofitVersion = '2.1.0'
+}
