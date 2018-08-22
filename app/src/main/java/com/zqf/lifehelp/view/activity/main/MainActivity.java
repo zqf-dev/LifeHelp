@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.orhanobut.logger.Logger;
 import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.utils.appmanager.AppManager;
 import com.zqf.lifehelp.view.fragment.ContentFg;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         AppManager.getAppManager().addActivity(this);
         initfg();
+        Logger.e("package name = " + this.getPackageName());
     }
 
     private void initfg() {

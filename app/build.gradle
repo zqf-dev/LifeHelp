@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
+
 android {
     compileSdkVersion rootProject.ext.compileSdk
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -30,6 +31,30 @@ android {
             minifyEnabled false
         }
     }
+
+    //gradle多渠道打包方式
+    // productFlavors 定义了一个应用的自定义构建版本
+    //一个单一的项目可以同时定义多个不同的 flavor 来改变应用的输出。
+    // productFlavors 这个概念是为了解决不同的版本之间的差异非常小的情况，通常用于区分同一个应用的不同渠道/客户等，可包含少量业务功能差别。
+    // productFlavors 中的 flavor 不能跟 buildType 中的一样,否则会报: "ProductFlavor names cannot collide with BuildType names"
+    productFlavors {
+
+        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+        flavors_default {}
+
+        //测试服务器版本, applicationId 替换为 com.littlejie.multichannel.dev
+        flavors_dev {
+            applicationId "com.zqf.lifehelp.dev"
+        }
+
+        //发布版本, applicationId 替换为 com.littlejie.multichannel.release
+        flavors_release {
+            applicationId "com.zqf.lifehelp.release"
+        }
+    }
+
+
+
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
