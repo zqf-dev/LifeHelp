@@ -1,5 +1,6 @@
 package com.zqf.lifehelp.app;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
@@ -30,8 +31,10 @@ public class App extends Application {
 
     private static SPUtils mSPUtils;
 
+    @SuppressLint("StaticFieldLeak")
     private static App instance;
 
+    @SuppressLint("StaticFieldLeak")
     private static Context mContext;
 
     @Override
