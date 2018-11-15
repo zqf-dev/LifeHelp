@@ -122,9 +122,14 @@
         <activity
             android:name=".view.activity.leftmenu.QueryID"
             android:screenOrientation="portrait" />
+        <!--注册-->
         <activity
             android:name=".view.activity.registerlogin.Register"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!--登录-->
+        <activity
+            android:name=".view.activity.registerlogin.Login"
             android:screenOrientation="portrait" />
     </application>
 

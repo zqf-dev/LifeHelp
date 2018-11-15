@@ -12,9 +12,12 @@ import com.zqf.lifehelp.R;
 import com.zqf.lifehelp.app.App;
 import com.zqf.lifehelp.factory.base.NBaseActivity;
 import com.zqf.lifehelp.utils.Constants;
+import com.zqf.lifehelp.utils.Util;
 import com.zqf.lifehelp.utils.customview.FlowTagLayout;
 import com.zqf.lifehelp.utils.customview.OnTagSelectListener;
 import com.zqf.lifehelp.view.activity.main.MainActivity;
+import com.zqf.lifehelp.view.activity.registerlogin.Login;
+import com.zqf.lifehelp.view.activity.registerlogin.Register;
 import com.zqf.lifehelp.view.adapter.TagAdapter;
 
 import java.util.List;
@@ -80,11 +83,11 @@ public class TagSelection extends NBaseActivity {
         switch (view.getId()) {
             case R.id.regist_tv:
                 //注册
-
+                Util.NextActivity(this, Register.class);
                 break;
             case R.id.login_tv:
                 //登录
-
+                Util.NextActivity(this, Login.class);
                 break;
         }
     }

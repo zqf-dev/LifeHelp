@@ -1,5 +1,6 @@
 package com.zqf.lifehelp.view.activity.newsdetail;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
@@ -49,6 +50,8 @@ public class TencentWebview extends Activity {
     private String sourceurl;
     private String sourlocaldefault = "http://192.168.1.109:8080/Demo/demo2-hls-html5.html";
     private static final int MSG_URL = 0x10;
+
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
